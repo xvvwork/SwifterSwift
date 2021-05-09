@@ -1,4 +1,4 @@
-// FontExtensions.swift - Copyright 2020 SwifterSwift
+// ---FontExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit

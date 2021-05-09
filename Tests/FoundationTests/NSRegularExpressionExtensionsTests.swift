@@ -1,4 +1,4 @@
-// NSRegularExpressionExtensionsTests.swift - Copyright 2020 SwifterSwift
+// NSRegularExpressionExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -15,9 +15,10 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
 
     func testEnumerateMatches() {
         var count = 0
-        regularExpression.enumerateMatches(in: string,
-                                           options: [],
-                                           range: string.startIndex..<string.endIndex) { result, _, _ in
+        regularExpression.enumerateMatches(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex) { result, _, _ in
                 XCTAssertEqual(
                     String(self.string[Range(result!.range, in: self.string)!]),
                     self.searchString)
@@ -27,9 +28,10 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
 
         count = 0
         let max = 2 // must be less than expectedMatches
-        regularExpression.enumerateMatches(in: string,
-                                           options: [],
-                                           range: string.startIndex..<string.endIndex) { result, _, stop in
+        regularExpression.enumerateMatches(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex) { result, _, stop in
                 XCTAssertEqual(
                     String(self.string[Range(result!.range, in: self.string)!]),
                     self.searchString)
@@ -40,9 +42,10 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
     }
 
     func testMatches() {
-        let matches = regularExpression.matches(in: string,
-                                                options: [],
-                                                range: string.startIndex..<string.endIndex)
+        let matches = regularExpression.matches(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex)
         XCTAssertEqual(matches.count, expectedMatches)
         for match in matches {
             XCTAssertEqual(String(string[Range(match.range, in: string)!]), searchString)
@@ -50,25 +53,29 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
     }
 
     func testNumberOfMatches() {
-        XCTAssertEqual(regularExpression.numberOfMatches(in: string,
-                                                         options: [],
-                                                         range: string.startIndex..<string.endIndex),
-                       expectedMatches)
+        XCTAssertEqual(
+            regularExpression.numberOfMatches(
+                in: string,
+                options: [],
+                range: string.startIndex..<string.endIndex),
+            expectedMatches)
     }
 
     func testFirstMatch() {
-        let firstMatch = regularExpression.firstMatch(in: string,
-                                                      options: [],
-                                                      range: string.startIndex..<string.endIndex)
+        let firstMatch = regularExpression.firstMatch(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex)
         XCTAssertNotNil(firstMatch)
         XCTAssertEqual(firstMatch?.range.location, 0)
         XCTAssertEqual(String(string[Range(firstMatch!.range, in: string)!]), searchString)
     }
 
     func testRangeOfFirstMatch() {
-        let range = regularExpression.rangeOfFirstMatch(in: string,
-                                                        options: [],
-                                                        range: string.startIndex..<string.endIndex)
+        let range = regularExpression.rangeOfFirstMatch(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex)
         XCTAssertNotNil(range)
         XCTAssertEqual(range?.lowerBound, string.startIndex)
         XCTAssertEqual(range?.upperBound, string.index(string.startIndex, offsetBy: searchString.count))
@@ -79,19 +86,21 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
     }
 
     func testStringByReplacingMatches() {
-        let newString = regularExpression.stringByReplacingMatches(in: string,
-                                                                   options: [],
-                                                                   range: string.startIndex..<string.endIndex,
-                                                                   withTemplate: "$0$0")
+        let newString = regularExpression.stringByReplacingMatches(
+            in: string,
+            options: [],
+            range: string.startIndex..<string.endIndex,
+            withTemplate: "$0$0")
         XCTAssertEqual(newString, "barbar foo barbar foo barbar")
     }
 
     func testReplaceMatches() {
         var newString = string
-        let matches = regularExpression.replaceMatches(in: &newString,
-                                                       options: [],
-                                                       range: string.startIndex..<string.endIndex,
-                                                       withTemplate: "$0$0")
+        let matches = regularExpression.replaceMatches(
+            in: &newString,
+            options: [],
+            range: string.startIndex..<string.endIndex,
+            withTemplate: "$0$0")
         XCTAssertEqual(newString, "barbar foo barbar foo barbar")
         XCTAssertEqual(matches, expectedMatches)
     }

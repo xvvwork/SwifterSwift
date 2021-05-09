@@ -1,4 +1,4 @@
-// UIScrollViewExtensions.swift - Copyright 2020 SwifterSwift
+// UIScrollViewExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -30,9 +30,11 @@ public extension UIScrollView {
     var visibleRect: CGRect {
         let contentWidth = contentSize.width - contentOffset.x
         let contentHeight = contentSize.height - contentOffset.y
-        return CGRect(origin: contentOffset,
-                      size: CGSize(width: min(min(bounds.size.width, contentSize.width), contentWidth),
-                                   height: min(min(bounds.size.height, contentSize.height), contentHeight)))
+        return CGRect(
+            origin: contentOffset,
+            size: CGSize(
+                width: min(min(bounds.size.width, contentSize.width), contentWidth),
+                height: min(min(bounds.size.height, contentSize.height), contentHeight)))
     }
 }
 
@@ -73,7 +75,7 @@ public extension UIScrollView {
         var y = max(minY, contentOffset.y - bounds.height)
         #if !os(tvOS)
         if isPagingEnabled,
-            bounds.height != 0 {
+           bounds.height != 0 {
             let page = max(0, ((y + contentInset.top) / bounds.height).rounded(.down))
             y = max(minY, page * bounds.height - contentInset.top)
         }
@@ -89,7 +91,7 @@ public extension UIScrollView {
         var x = max(minX, contentOffset.x - bounds.width)
         #if !os(tvOS)
         if isPagingEnabled,
-            bounds.width != 0 {
+           bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
             x = max(minX, page * bounds.width - contentInset.left)
         }
@@ -105,7 +107,7 @@ public extension UIScrollView {
         var y = min(maxY, contentOffset.y + bounds.height)
         #if !os(tvOS)
         if isPagingEnabled,
-            bounds.height != 0 {
+           bounds.height != 0 {
             let page = ((y + contentInset.top) / bounds.height).rounded(.down)
             y = min(maxY, page * bounds.height - contentInset.top)
         }
@@ -121,7 +123,7 @@ public extension UIScrollView {
         var x = min(maxX, contentOffset.x + bounds.width)
         #if !os(tvOS)
         if isPagingEnabled,
-            bounds.width != 0 {
+           bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
             x = min(maxX, page * bounds.width - contentInset.left)
         }

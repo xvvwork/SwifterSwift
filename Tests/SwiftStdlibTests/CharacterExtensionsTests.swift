@@ -1,12 +1,4 @@
-// CharacterExtensionsTests.swift - Copyright 2020 SwifterSwift
-
-//
-//  CharacterExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// CharacterExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

@@ -1,4 +1,4 @@
-// IntExtensions.swift - Copyright 2020 SwifterSwift
+// ---IntExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics

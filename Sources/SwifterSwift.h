@@ -1,10 +1,4 @@
-//
-//  SwifterSwift.h
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 6/12/17.
-//  Copyright © 2017 SwifterSwift
-//
+// SwifterSwift.h - Copyright 2021 SwifterSwift
 
 #import <Foundation/Foundation.h>
 #import "TargetConditionals.h"

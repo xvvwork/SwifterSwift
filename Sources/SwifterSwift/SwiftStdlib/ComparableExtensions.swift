@@ -1,4 +1,4 @@
-// ComparableExtensions.swift - Copyright 2020 SwifterSwift
+// ComparableExtensions.swift - Copyright 2021 SwifterSwift
 
 // MARK: - Methods
 
@@ -16,7 +16,9 @@ public extension Comparable {
     func isBetween(_ range: ClosedRange<Self>) -> Bool {
         return range ~= self
     }
+}
 
+public extension Comparable {
     /// SwifterSwift: Returns value limited within the provided range.
     ///
     ///     1.clamped(to: 3...8) // 3

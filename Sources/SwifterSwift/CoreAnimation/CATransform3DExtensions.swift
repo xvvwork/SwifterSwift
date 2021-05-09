@@ -1,17 +1,11 @@
-// CATransform3DExtensions.swift - Copyright 2020 SwifterSwift
+// CATransform3DExtensions.swift - Copyright 2021 SwifterSwift
 
 // swiftlint:disable identifier_name
 
 #if canImport(QuartzCore)
-
 import QuartzCore
-
-// MARK: - Equatable
-
 extension CATransform3D: Equatable {
-    // swiftlint:disable missing_swifterswift_prefix
-
-    /// Returns a Boolean value indicating whether two values are equal.
+    /// SwifterSwift: Returns a Boolean value indicating whether two values are equal.
     ///
     /// Equality is the inverse of inequality. For any values `a` and `b`,
     /// `a == b` implies that `a != b` is `false`.
@@ -23,49 +17,53 @@ extension CATransform3D: Equatable {
     public static func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
         CATransform3DEqualToTransform(lhs, rhs)
     }
-
-    // swiftlint:disable missing_swifterswift_prefix
 }
+#endif
 
-// MARK: - Static Properties
-
+#if canImport(QuartzCore)
+import QuartzCore
 public extension CATransform3D {
     /// SwifterSwift: The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].
     @inlinable
     static var identity: CATransform3D { CATransform3DIdentity }
 }
+#endif
 
-// MARK: - Codable
-
-extension CATransform3D: Codable {
-    // swiftlint:disable missing_swifterswift_prefix
-
-    /// Creates a new instance by decoding from the given decoder.
+#if canImport(QuartzCore)
+import QuartzCore
+extension CATransform3D: Decodable {
+    /// SwifterSwift: Creates a new instance by decoding from the given decoder.
     ///
     /// This initializer throws an error if reading from the decoder fails, or if the data read is corrupted or otherwise invalid.
     /// - Parameter decoder: The decoder to read data from.
     @inlinable
     public init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
-        self.init(m11: try container.decode(CGFloat.self),
-                  m12: try container.decode(CGFloat.self),
-                  m13: try container.decode(CGFloat.self),
-                  m14: try container.decode(CGFloat.self),
-                  m21: try container.decode(CGFloat.self),
-                  m22: try container.decode(CGFloat.self),
-                  m23: try container.decode(CGFloat.self),
-                  m24: try container.decode(CGFloat.self),
-                  m31: try container.decode(CGFloat.self),
-                  m32: try container.decode(CGFloat.self),
-                  m33: try container.decode(CGFloat.self),
-                  m34: try container.decode(CGFloat.self),
-                  m41: try container.decode(CGFloat.self),
-                  m42: try container.decode(CGFloat.self),
-                  m43: try container.decode(CGFloat.self),
-                  m44: try container.decode(CGFloat.self))
+        self.init(
+            m11: try container.decode(CGFloat.self),
+            m12: try container.decode(CGFloat.self),
+            m13: try container.decode(CGFloat.self),
+            m14: try container.decode(CGFloat.self),
+            m21: try container.decode(CGFloat.self),
+            m22: try container.decode(CGFloat.self),
+            m23: try container.decode(CGFloat.self),
+            m24: try container.decode(CGFloat.self),
+            m31: try container.decode(CGFloat.self),
+            m32: try container.decode(CGFloat.self),
+            m33: try container.decode(CGFloat.self),
+            m34: try container.decode(CGFloat.self),
+            m41: try container.decode(CGFloat.self),
+            m42: try container.decode(CGFloat.self),
+            m43: try container.decode(CGFloat.self),
+            m44: try container.decode(CGFloat.self))
     }
+}
+#endif
 
-    /// Encodes this value into the given encoder.
+#if canImport(QuartzCore)
+import QuartzCore
+extension CATransform3D: Encodable {
+    /// SwifterSwift: Encodes this value into the given encoder.
     ///
     /// If the value fails to encode anything, encoder will encode an empty keyed container in its place.
     ///
@@ -91,12 +89,11 @@ extension CATransform3D: Codable {
         try container.encode(m43)
         try container.encode(m44)
     }
-
-    // swiftlint:enable missing_swifterswift_prefix
 }
+#endif
 
-// MARK: - Initializers
-
+#if canImport(QuartzCore)
+import QuartzCore
 public extension CATransform3D {
     /// SwifterSwift: Returns a transform that translates by `(tx, ty, tz)`.
     /// - Parameters:
@@ -107,7 +104,12 @@ public extension CATransform3D {
     init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
         self = CATransform3DMakeTranslation(tx, ty, tz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Returns a transform that scales by `(sx, sy, sz)`.
     /// - Parameters:
     ///   - sx: x-axis scale
@@ -117,7 +119,12 @@ public extension CATransform3D {
     init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
         self = CATransform3DMakeScale(sx, sy, sz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Returns a transform that rotates by `angle` radians about the vector `(x, y, z)`.
     ///
     /// If the vector has zero length the behavior is undefined.
@@ -131,17 +138,19 @@ public extension CATransform3D {
         self = CATransform3DMakeRotation(angle, x, y, z)
     }
 }
+#endif
 
-// MARK: - Properties
-
+#if canImport(QuartzCore)
+import QuartzCore
 public extension CATransform3D {
     /// SwifterSwift: Returns `true` if the receiver is the identity transform.
     @inlinable
     var isIdentity: Bool { CATransform3DIsIdentity(self) }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(QuartzCore)
+import QuartzCore
 public extension CATransform3D {
     /// SwifterSwift: Translate the receiver by `(tx, ty, tz)`.
     /// - Parameters:
@@ -150,11 +159,18 @@ public extension CATransform3D {
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
     @inlinable
-    func translatedBy(x tx: CGFloat, y ty: CGFloat,
-                      z tz: CGFloat) -> CATransform3D {
+    func translatedBy(
+        x tx: CGFloat,
+        y ty: CGFloat,
+        z tz: CGFloat) -> CATransform3D {
         CATransform3DTranslate(self, tx, ty, tz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Scale the receiver by `(sx, sy, sz)`.
     /// - Parameters:
     ///   - sx: x-axis scale
@@ -162,11 +178,18 @@ public extension CATransform3D {
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
     @inlinable
-    func scaledBy(x sx: CGFloat, y sy: CGFloat,
-                  z sz: CGFloat) -> CATransform3D {
+    func scaledBy(
+        x sx: CGFloat,
+        y sy: CGFloat,
+        z sz: CGFloat) -> CATransform3D {
         CATransform3DScale(self, sx, sy, sz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Rotate the receiver by `angle` radians about the vector `(x, y, z)`.
     ///
     /// If the vector has zero length the behavior is undefined.
@@ -180,7 +203,12 @@ public extension CATransform3D {
     func rotated(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) -> CATransform3D {
         CATransform3DRotate(self, angle, x, y, z)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Invert the receiver.
     ///
     /// Returns the original matrix if the receiver has no inverse.
@@ -189,7 +217,12 @@ public extension CATransform3D {
     func inverted() -> CATransform3D {
         CATransform3DInvert(self)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Concatenate `transform` to the receiver.
     /// - Parameter t2: The transform to concatenate on to the receiver
     /// - Returns: The concatenated matrix.
@@ -197,7 +230,12 @@ public extension CATransform3D {
     func concatenating(_ t2: CATransform3D) -> CATransform3D {
         CATransform3DConcat(self, t2)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Translate the receiver by `(tx, ty, tz)`.
     /// - Parameters:
     ///   - tx: x-axis translation
@@ -207,7 +245,12 @@ public extension CATransform3D {
     mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
         self = CATransform3DTranslate(self, tx, ty, tz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Scale the receiver by `(sx, sy, sz)`.
     /// - Parameters:
     ///   - sx: x-axis scale
@@ -217,7 +260,12 @@ public extension CATransform3D {
     mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
         self = CATransform3DScale(self, sx, sy, sz)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Rotate the receiver by `angle` radians about the vector `(x, y, z)`.
     ///
     /// If the vector has zero length the behavior is undefined.
@@ -230,7 +278,12 @@ public extension CATransform3D {
     mutating func rotate(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) {
         self = CATransform3DRotate(self, angle, x, y, z)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Invert the receiver.
     ///
     /// Returns the original matrix if the receiver has no inverse.
@@ -238,7 +291,12 @@ public extension CATransform3D {
     mutating func invert() {
         self = CATransform3DInvert(self)
     }
+}
+#endif
 
+#if canImport(QuartzCore)
+import QuartzCore
+public extension CATransform3D {
     /// SwifterSwift: Concatenate `transform` to the receiver.
     /// - Parameter t2: The transform to concatenate on to the receiver
     @inlinable
@@ -246,13 +304,10 @@ public extension CATransform3D {
         self = CATransform3DConcat(self, t2)
     }
 }
+#endif
 
-#if canImport(CoreGraphics)
-
+#if canImport(QuartzCore) && canImport(CoreGraphics)
 import CoreGraphics
-
-// MARK: - CGAffineTransform
-
 public extension CATransform3D {
     /// SwifterSwift: Returns true if the receiver can be represented exactly by an affine transform.
     @inlinable
@@ -266,7 +321,4 @@ public extension CATransform3D {
         CATransform3DGetAffineTransform(self)
     }
 }
-
-#endif
-
 #endif

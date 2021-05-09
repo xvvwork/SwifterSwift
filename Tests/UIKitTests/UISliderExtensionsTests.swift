@@ -1,4 +1,4 @@
-// UISliderExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UISliderExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

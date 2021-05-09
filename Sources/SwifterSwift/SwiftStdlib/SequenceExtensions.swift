@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2020 SwifterSwift
+// SequenceExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.
@@ -11,7 +11,9 @@ public extension Sequence {
     func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try !contains { try !condition($0) }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Check if no elements in collection match a condition.
     ///
     ///        [2, 2, 4].none(matching: {$0 % 2 == 0}) -> false
@@ -22,7 +24,9 @@ public extension Sequence {
     func none(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try !contains { try condition($0) }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Check if any element in collection match a condition.
     ///
     ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> false
@@ -33,7 +37,9 @@ public extension Sequence {
     func any(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try contains { try condition($0) }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Filter elements based on a rejection condition.
     ///
     ///        [2, 2, 4, 7].reject(where: {$0 % 2 == 0}) -> [7]
@@ -43,7 +49,9 @@ public extension Sequence {
     func reject(where condition: (Element) throws -> Bool) rethrows -> [Element] {
         return try filter { return try !condition($0) }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Get element count based on condition.
     ///
     ///        [2, 2, 4, 7].count(where: {$0 % 2 == 0}) -> 3
@@ -57,7 +65,9 @@ public extension Sequence {
         }
         return count
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
     ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> // Order of print: 7,4,2,0
@@ -66,7 +76,9 @@ public extension Sequence {
     func forEachReversed(_ body: (Element) throws -> Void) rethrows {
         try reversed().forEach(body)
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Calls the given closure with each element where condition is true.
     ///
     ///        [0, 2, 4, 7].forEach(where: {$0 % 2 == 0}, body: { print($0)}) -> // print: 0, 2, 4
@@ -77,7 +89,9 @@ public extension Sequence {
     func forEach(where condition: (Element) throws -> Bool, body: (Element) throws -> Void) rethrows {
         try lazy.filter(condition).forEach(body)
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Reduces an array while returning each interim combination.
     ///
     ///     [1, 2, 3].accumulate(initial: 0, next: +) -> [1, 3, 6]
@@ -93,7 +107,9 @@ public extension Sequence {
             return runningTotal
         }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Filtered and map in a single operation.
     ///
     ///     [1,2,3,4,5].filtered({ $0 % 2 == 0 }, map: { $0.string }) -> ["2", "4"]
@@ -105,7 +121,9 @@ public extension Sequence {
     func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows -> [T] {
         return try lazy.filter(isIncluded).map(transform)
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Get the only element based on a condition.
     ///
     ///     [].single(where: {_ in true}) -> nil
@@ -126,7 +144,9 @@ public extension Sequence {
         }
         return singleElement
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Remove duplicate elements based on condition.
     ///
     ///        [1, 2, 1, 3, 2].withoutDuplicates { $0 } -> [1, 2, 3]
@@ -139,7 +159,9 @@ public extension Sequence {
         var set = Set<T>()
         return try filter { set.insert(try transform($0)).inserted }
     }
+}
 
+public extension Sequence {
     ///  SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items for which the specified condition evaluates to true. The second list contains those that don't.
     ///
     ///     let (even, odd) = [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 }
@@ -157,7 +179,9 @@ public extension Sequence {
         }
         return (matching, nonMatching)
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Return a sorted array based on a key path and a compare function.
     ///
     /// - Parameter keyPath: Key path to sort by.
@@ -166,7 +190,9 @@ public extension Sequence {
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Return a sorted array based on a key path.
     ///
     /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
@@ -174,14 +200,17 @@ public extension Sequence {
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values of the first one match.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                              and keyPath2: KeyPath<Element, U>) -> [Element] {
+    func sorted<T: Comparable, U: Comparable>(
+        by keyPath1: KeyPath<Element, T>,
+        and keyPath2: KeyPath<Element, U>) -> [Element] {
         return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
@@ -189,16 +218,19 @@ public extension Sequence {
             return $0[keyPath: keyPath2] < $1[keyPath: keyPath2]
         }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Returns a sorted sequence based on three key paths. Whenever the values of one key path match, the next one will be used.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
     ///     - keyPath3: Key path to sort by in case the values of `keyPath1` and `keyPath2` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable, V: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                                             and keyPath2: KeyPath<Element, U>,
-                                                             and keyPath3: KeyPath<Element, V>) -> [Element] {
+    func sorted<T: Comparable, U: Comparable, V: Comparable>(
+        by keyPath1: KeyPath<Element, T>,
+        and keyPath2: KeyPath<Element, U>,
+        and keyPath3: KeyPath<Element, V>) -> [Element] {
         return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
@@ -209,7 +241,9 @@ public extension Sequence {
             return $0[keyPath: keyPath3] < $1[keyPath: keyPath3]
         }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
     ///
     ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
@@ -220,7 +254,9 @@ public extension Sequence {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
+}
 
+public extension Sequence {
     /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given `value`.
     ///
     /// - Parameters:
@@ -261,7 +297,9 @@ public extension Sequence where Element: Hashable {
         let set = Set(self)
         return elements.allSatisfy { set.contains($0) }
     }
+}
 
+public extension Sequence where Element: Hashable {
     /// SwifterSwift: Check whether a sequence contains duplicates.
     ///
     /// - Returns: true if the receiver contains duplicates.
@@ -274,7 +312,9 @@ public extension Sequence where Element: Hashable {
         }
         return false
     }
+}
 
+public extension Sequence where Element: Hashable {
     /// SwifterSwift: Getting the duplicated elements in a sequence.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicates().sorted() -> [1, 2, 3])
@@ -293,8 +333,6 @@ public extension Sequence where Element: Hashable {
         return Array(duplicates)
     }
 }
-
-// MARK: - Methods (AdditiveArithmetic)
 
 public extension Sequence where Element: AdditiveArithmetic {
     /// SwifterSwift: Sum of all elements in array.

@@ -1,4 +1,4 @@
-// DateExtensions.swift - Copyright 2020 SwifterSwift
+// ----DateExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -666,21 +666,24 @@ public extension Date {
         switch component {
         case .second:
             var date = adding(.second, value: 1)
-            date = calendar.date(from:
+            date = calendar.date(
+                from:
                 calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date))!
             date.add(.second, value: -1)
             return date
 
         case .minute:
             var date = adding(.minute, value: 1)
-            let after = calendar.date(from:
+            let after = calendar.date(
+                from:
                 calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
         case .hour:
             var date = adding(.hour, value: 1)
-            let after = calendar.date(from:
+            let after = calendar.date(
+                from:
                 calendar.dateComponents([.year, .month, .day, .hour], from: date))!
             date = after.adding(.second, value: -1)
             return date
@@ -693,21 +696,24 @@ public extension Date {
 
         case .weekOfYear, .weekOfMonth:
             var date = self
-            let beginningOfWeek = calendar.date(from:
+            let beginningOfWeek = calendar.date(
+                from:
                 calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
             date = beginningOfWeek.adding(.day, value: 7).adding(.second, value: -1)
             return date
 
         case .month:
             var date = adding(.month, value: 1)
-            let after = calendar.date(from:
+            let after = calendar.date(
+                from:
                 calendar.dateComponents([.year, .month], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
         case .year:
             var date = adding(.year, value: 1)
-            let after = calendar.date(from:
+            let after = calendar.date(
+                from:
                 calendar.dateComponents([.year], from: date))!
             date = after.adding(.second, value: -1)
             return date
@@ -906,10 +912,12 @@ public extension Date {
     /// - Parameter range: The range in which to create a random date. `range` must not be empty.
     /// - Returns: A random date within the bounds of `range`.
     static func random(in range: Range<Date>) -> Date {
-        return Date(timeIntervalSinceReferenceDate:
+        return Date(
+            timeIntervalSinceReferenceDate:
             TimeInterval
-                .random(in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound
-                    .timeIntervalSinceReferenceDate))
+                .random(
+                    in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound
+                        .timeIntervalSinceReferenceDate))
     }
 
     /// SwifterSwift: Returns a random date within the specified range.
@@ -917,10 +925,12 @@ public extension Date {
     /// - Parameter range: The range in which to create a random date.
     /// - Returns: A random date within the bounds of `range`.
     static func random(in range: ClosedRange<Date>) -> Date {
-        return Date(timeIntervalSinceReferenceDate:
+        return Date(
+            timeIntervalSinceReferenceDate:
             TimeInterval
-                .random(in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound
-                    .timeIntervalSinceReferenceDate))
+                .random(
+                    in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound
+                        .timeIntervalSinceReferenceDate))
     }
 
     /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
@@ -930,7 +940,8 @@ public extension Date {
     ///   - generator: The random number generator to use when creating the new random date.
     /// - Returns: A random date within the bounds of `range`.
     static func random<T>(in range: Range<Date>, using generator: inout T) -> Date where T: RandomNumberGenerator {
-        return Date(timeIntervalSinceReferenceDate:
+        return Date(
+            timeIntervalSinceReferenceDate:
             TimeInterval.random(
                 in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound.timeIntervalSinceReferenceDate,
                 using: &generator))
@@ -944,7 +955,8 @@ public extension Date {
     /// - Returns: A random date within the bounds of `range`.
     static func random<T>(in range: ClosedRange<Date>, using generator: inout T) -> Date
         where T: RandomNumberGenerator {
-        return Date(timeIntervalSinceReferenceDate:
+        return Date(
+            timeIntervalSinceReferenceDate:
             TimeInterval.random(
                 in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate,
                 using: &generator))

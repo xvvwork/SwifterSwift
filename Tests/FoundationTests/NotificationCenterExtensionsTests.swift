@@ -1,4 +1,4 @@
-// NotificationCenterExtensionsTests.swift - Copyright 2020 SwifterSwift
+// NotificationCenterExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -12,10 +12,11 @@ final class NotificationCenterExtensionsTests: XCTestCase {
         let object = NSObject()
         let operationQueue = OperationQueue()
         let increment = { (_: Notification) in count += 1 }
-        notificationCenter.observeOnce(forName: notificationName,
-                                       object: object,
-                                       queue: operationQueue,
-                                       using: increment)
+        notificationCenter.observeOnce(
+            forName: notificationName,
+            object: object,
+            queue: operationQueue,
+            using: increment)
 
         let wrongNotificationName = Notification.Name(rawValue: "bar")
 
@@ -28,24 +29,27 @@ final class NotificationCenterExtensionsTests: XCTestCase {
         notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 1)
 
-        notificationCenter.observeOnce(forName: nil,
-                                       object: object,
-                                       queue: operationQueue,
-                                       using: increment)
+        notificationCenter.observeOnce(
+            forName: nil,
+            object: object,
+            queue: operationQueue,
+            using: increment)
         notificationCenter.post(name: wrongNotificationName, object: object)
         XCTAssertEqual(count, 2)
 
-        notificationCenter.observeOnce(forName: notificationName,
-                                       object: nil,
-                                       queue: operationQueue,
-                                       using: increment)
+        notificationCenter.observeOnce(
+            forName: notificationName,
+            object: nil,
+            queue: operationQueue,
+            using: increment)
         notificationCenter.post(name: notificationName, object: nil)
         XCTAssertEqual(count, 3)
 
-        notificationCenter.observeOnce(forName: notificationName,
-                                       object: object,
-                                       queue: nil,
-                                       using: increment)
+        notificationCenter.observeOnce(
+            forName: notificationName,
+            object: object,
+            queue: nil,
+            using: increment)
         notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 4)
     }

@@ -1,8 +1,7 @@
-// FileManagerExtensions.swift - Copyright 2020 SwifterSwift
+// FileManagerExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
 public extension FileManager {
     /// SwifterSwift: Read from a JSON file at a given path.
     ///
@@ -19,8 +18,12 @@ public extension FileManager {
 
         return json as? [String: Any]
     }
+}
+#endif
 
-    #if !os(Linux)
+#if canImport(Foundation) && !os(Linux)
+import Foundation
+public extension FileManager {
     /// SwifterSwift: Read from a JSON file with a given filename.
     ///
     /// - Parameters:
@@ -48,8 +51,12 @@ public extension FileManager {
 
         return nil
     }
-    #endif
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension FileManager {
     /// SwifterSwift: Creates a unique directory for saving temporary files. The directory can be used to create multiple temporary files used for a common purpose.
     ///
     ///     let tempDirectory = try fileManager.createTemporaryDirectory()
@@ -66,10 +73,11 @@ public extension FileManager {
         } else {
             temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
         }
-        return try url(for: .itemReplacementDirectory,
-                       in: .userDomainMask,
-                       appropriateFor: temporaryDirectoryURL,
-                       create: true)
+        return try url(
+            for: .itemReplacementDirectory,
+            in: .userDomainMask,
+            appropriateFor: temporaryDirectoryURL,
+            create: true)
         #else
         let envs = ProcessInfo.processInfo.environment
         let env = envs["TMPDIR"] ?? envs["TEMP"] ?? envs["TMP"] ?? "/tmp"
@@ -80,5 +88,4 @@ public extension FileManager {
         #endif
     }
 }
-
 #endif

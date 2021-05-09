@@ -9,3 +9,5 @@
 --nospaceoperators ..<,...
 --maxwidth 120
 --swiftversion 5.3
+--wraparguments before-first
+--wrapparameters before-first

@@ -1,10 +1,7 @@
-// CLLocationArrayExtensions.swift - Copyright 2020 SwifterSwift
+// CLLocationArrayExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreLocation)
 import CoreLocation
-
-// MARK: - Methods
-
 public extension Array where Element: CLLocation {
     /// SwifterSwift: Calculates the sum of distances between each location in the array based on the curvature of the earth.
     ///
@@ -22,5 +19,4 @@ public extension Array where Element: CLLocation {
         return Measurement(value: distance, unit: UnitLength.meters).converted(to: unit)
     }
 }
-
 #endif

@@ -1,16 +1,18 @@
-// LocaleExtensions.swift - Copyright 2020 SwifterSwift
+// LocaleExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
-// MARK: - Properties
-
 public extension Locale {
     /// SwifterSwift: UNIX representation of locale usually used for normalizing.
     static var posix: Locale {
         return Locale(identifier: "en_US_POSIX")
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension Locale {
     /// SwifterSwift: Returns bool value indicating if locale has 12h format.
     var is12HourTimeFormat: Bool {
         let dateFormatter = DateFormatter()
@@ -21,16 +23,17 @@ public extension Locale {
         return dateString.contains(dateFormatter.amSymbol) || dateString.contains(dateFormatter.pmSymbol)
     }
 }
+#endif
 
-// MARK: - Functions
-
+#if canImport(Foundation)
+import Foundation
 public extension Locale {
     /// SwifterSwift: Get the flag emoji for a given country region code.
     /// - Parameter isoRegionCode: The IOS region code.
     ///
-    /// Adapted from https://stackoverflow.com/a/30403199/1627511
     /// - Returns: A flag emoji string for the given region code (optional).
     static func flagEmoji(forRegionCode isoRegionCode: String) -> String? {
+        // Adapted from https://stackoverflow.com/a/30403199/1627511
         #if !os(Linux)
         guard isoRegionCodes.contains(isoRegionCode) else { return nil }
         #endif
@@ -41,5 +44,4 @@ public extension Locale {
         }
     }
 }
-
 #endif

@@ -1,10 +1,7 @@
-// UIActivityExtensions.swift - Copyright 2020 SwifterSwift
+// UIActivityExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
-
-// MARK: - ActivityType
-
 public extension UIActivity.ActivityType {
     /// SwifterSwift: AddToiCloudDrive.
     static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive")
@@ -18,5 +15,4 @@ public extension UIActivity.ActivityType {
     /// SwifterSwift: XING share extension.
     static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
 }
-
 #endif

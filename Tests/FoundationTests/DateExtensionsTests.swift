@@ -1,4 +1,4 @@
-// DateExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DateExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -958,22 +958,26 @@ final class DateExtensionsTests: XCTestCase {
         var generator = SystemRandomNumberGenerator()
         let sinceDate = Date.distantPast
         let toDate = Date.distantFuture
-        XCTAssert(Date.random(in: sinceDate..<toDate, using: &generator)
-            .isBetween(sinceDate, toDate, includeBounds: false))
+        XCTAssert(
+            Date.random(in: sinceDate..<toDate, using: &generator)
+                .isBetween(sinceDate, toDate, includeBounds: false))
     }
 
     func testRandomClosedRangeWithGenerator() {
         var generator = SystemRandomNumberGenerator()
         let sinceDate = Date.distantPast
         let toDate = Date.distantFuture
-        XCTAssert(Date.random(in: sinceDate...toDate, using: &generator)
-            .isBetween(sinceDate, toDate, includeBounds: true))
+        XCTAssert(
+            Date.random(in: sinceDate...toDate, using: &generator)
+                .isBetween(sinceDate, toDate, includeBounds: true))
 
         let singleDate = Date(timeIntervalSinceReferenceDate: 0)
-        XCTAssertFalse(Date.random(in: singleDate...singleDate, using: &generator)
-            .isBetween(singleDate, singleDate, includeBounds: false))
-        XCTAssert(Date.random(in: singleDate...singleDate, using: &generator)
-            .isBetween(singleDate, singleDate, includeBounds: true))
+        XCTAssertFalse(
+            Date.random(in: singleDate...singleDate, using: &generator)
+                .isBetween(singleDate, singleDate, includeBounds: false))
+        XCTAssert(
+            Date.random(in: singleDate...singleDate, using: &generator)
+                .isBetween(singleDate, singleDate, includeBounds: true))
     }
 
     func testYesterday() {

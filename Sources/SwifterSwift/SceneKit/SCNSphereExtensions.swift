@@ -1,10 +1,7 @@
-// SCNSphereExtensions.swift - Copyright 2020 SwifterSwift
+// SCNSphereExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified diameter.
     ///
@@ -12,7 +9,12 @@ public extension SCNSphere {
     convenience init(diameter: CGFloat) {
         self.init(radius: diameter / 2)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified radius and material.
     ///
     /// - Parameters:
@@ -22,7 +24,12 @@ public extension SCNSphere {
         self.init(radius: radius)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified radius and material color.
     ///
     /// - Parameters:
@@ -31,7 +38,12 @@ public extension SCNSphere {
     convenience init(radius: CGFloat, color: Color) {
         self.init(radius: radius, material: SCNMaterial(color: color))
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified diameter and material.
     ///
     /// - Parameters:
@@ -41,7 +53,12 @@ public extension SCNSphere {
         self.init(radius: diameter / 2)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified diameter and material color.
     ///
     /// - Parameters:
@@ -51,5 +68,4 @@ public extension SCNSphere {
         self.init(diameter: diameter, material: SCNMaterial(color: color))
     }
 }
-
 #endif

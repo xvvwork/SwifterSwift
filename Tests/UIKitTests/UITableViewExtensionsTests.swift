@@ -1,4 +1,4 @@
-// UITableViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UITableViewExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -79,8 +79,9 @@ final class UITableViewExtensionsTests: XCTestCase {
     }
 
     func testDequeueReusableHeaderFooterView() {
-        tableView.register(UITableViewHeaderFooterView.self,
-                           forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterView")
+        tableView.register(
+            UITableViewHeaderFooterView.self,
+            forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterView")
         let headerFooterView = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
         XCTAssertNotNil(headerFooterView)
     }

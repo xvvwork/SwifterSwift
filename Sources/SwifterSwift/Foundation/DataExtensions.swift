@@ -1,10 +1,7 @@
-// DataExtensions.swift - Copyright 2020 SwifterSwift
+// DataExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
-// MARK: - Properties
-
 public extension Data {
     /// SwifterSwift: Return data as an array of bytes.
     var bytes: [UInt8] {
@@ -12,9 +9,10 @@ public extension Data {
         return [UInt8](self)
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Foundation)
+import Foundation
 public extension Data {
     /// SwifterSwift: String by encoding Data using the given encoding (if applicable).
     ///
@@ -23,7 +21,12 @@ public extension Data {
     func string(encoding: String.Encoding) -> String? {
         return String(data: self, encoding: encoding)
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension Data {
     /// SwifterSwift: Returns a Foundation object from given JSON data.
     ///
     /// - Parameter options: Options for reading the JSON data and creating the Foundation object.
@@ -35,5 +38,4 @@ public extension Data {
         return try JSONSerialization.jsonObject(with: self, options: options)
     }
 }
-
 #endif

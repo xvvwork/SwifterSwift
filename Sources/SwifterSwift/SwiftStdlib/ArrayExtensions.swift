@@ -1,6 +1,4 @@
-// ArrayExtensions.swift - Copyright 2020 SwifterSwift
-
-// MARK: - Methods
+// ArrayExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Array {
     /// SwifterSwift: Insert an element at the beginning of array.
@@ -12,7 +10,9 @@ public extension Array {
     mutating func prepend(_ newElement: Element) {
         insert(newElement, at: 0)
     }
+}
 
+public extension Array {
     /// SwifterSwift: Safely swap values at given index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
@@ -27,7 +27,9 @@ public extension Array {
         guard startIndex..<endIndex ~= otherIndex else { return }
         swapAt(index, otherIndex)
     }
+}
 
+public extension Array {
     /// SwifterSwift: Sort an array like another array based on a key path. If the other array doesn't contain a certain value, it will be sorted last.
     ///
     ///        [MyStruct(x: 3), MyStruct(x: 1), MyStruct(x: 2)].sorted(like: [1, 2, 3], keyPath: \.x)
@@ -47,8 +49,6 @@ public extension Array {
     }
 }
 
-// MARK: - Methods (Equatable)
-
 public extension Array where Element: Equatable {
     /// SwifterSwift: Remove all instances of an item from array.
     ///
@@ -62,7 +62,9 @@ public extension Array where Element: Equatable {
         removeAll(where: { $0 == item })
         return self
     }
+}
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Remove all instances contained in items parameter from array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
@@ -76,7 +78,9 @@ public extension Array where Element: Equatable {
         removeAll(where: { items.contains($0) })
         return self
     }
+}
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Remove all duplicate elements from Array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
@@ -93,7 +97,9 @@ public extension Array where Element: Equatable {
         }
         return self
     }
+}
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Return array with all duplicate elements removed.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
@@ -109,7 +115,9 @@ public extension Array where Element: Equatable {
             }
         }
     }
+}
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -121,7 +129,9 @@ public extension Array where Element: Equatable {
             }
         }
     }
+}
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.

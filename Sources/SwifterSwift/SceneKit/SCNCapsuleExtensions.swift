@@ -1,10 +1,7 @@
-// SCNCapsuleExtensions.swift - Copyright 2020 SwifterSwift
+// SCNCapsuleExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNCapsule {
     /// SwifterSwift: Creates a capsule geometry with the specified diameter and height.
     ///
@@ -14,7 +11,12 @@ public extension SCNCapsule {
     convenience init(capDiameter: CGFloat, height: CGFloat) {
         self.init(capRadius: capDiameter / 2, height: height)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCapsule {
     /// SwifterSwift: Creates a capsule geometry with the specified radius and height.
     ///
     /// - Parameters:
@@ -25,7 +27,12 @@ public extension SCNCapsule {
         self.init(capRadius: capRadius, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCapsule {
     /// SwifterSwift: Creates a capsule geometry with the specified diameter and height.
     ///
     /// - Parameters:
@@ -36,7 +43,12 @@ public extension SCNCapsule {
         self.init(capRadius: capDiameter / 2, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCapsule {
     /// SwifterSwift: Creates a capsule geometry with the specified radius and height.
     ///
     /// - Parameters:
@@ -47,7 +59,12 @@ public extension SCNCapsule {
         self.init(capRadius: capRadius, height: height)
         materials = [SCNMaterial(color: color)]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCapsule {
     /// SwifterSwift: Creates a capsule geometry with the specified diameter and height.
     ///
     /// - Parameters:
@@ -59,5 +76,4 @@ public extension SCNCapsule {
         materials = [SCNMaterial(color: color)]
     }
 }
-
 #endif

@@ -1,8 +1,7 @@
-// NotificationCenterExtensions.swift - Copyright 2020 SwifterSwift
+// NotificationCenterExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
 public extension NotificationCenter {
     /// SwifterSwift: Adds a one-time entry to the notification center's dispatch table that includes a notification queue and a block to add to the queue, and an optional notification name and sender.
     /// - Parameters:
@@ -21,10 +20,11 @@ public extension NotificationCenter {
     ///
     ///     The block takes one argument:
     ///   - notification: The notification.
-    func observeOnce(forName name: NSNotification.Name?,
-                     object obj: Any? = nil,
-                     queue: OperationQueue? = nil,
-                     using block: @escaping (_ notification: Notification) -> Void) {
+    func observeOnce(
+        forName name: NSNotification.Name?,
+        object obj: Any? = nil,
+        queue: OperationQueue? = nil,
+        using block: @escaping (_ notification: Notification) -> Void) {
         var handler: NSObjectProtocol!
         handler = addObserver(forName: name, object: obj, queue: queue) { [unowned self] in
             self.removeObserver(handler!)
@@ -32,5 +32,4 @@ public extension NotificationCenter {
         }
     }
 }
-
 #endif

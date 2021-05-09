@@ -1,12 +1,9 @@
-// UIRefreshControlExtensions.swift - Copyright 2020 SwifterSwift
+// UIRefreshControlExtensions.swift - Copyright 2021 SwifterSwift
 
-#if os(iOS)
+#if canImport(UIKit) && os(iOS)
 import UIKit
-
-// MARK: - Methods
-
 public extension UIRefreshControl {
-    /// SwifterSwift: Programatically begin refresh control inside of UITableView.
+    /// SwifterSwift: Programmatically begin refresh control inside of UITableView.
     ///
     /// - Parameters:
     ///   - tableView: UITableView instance, inside which the refresh control is contained.
@@ -25,5 +22,4 @@ public extension UIRefreshControl {
         }
     }
 }
-
 #endif

@@ -1,13 +1,6 @@
-// ArrayExtensionsTests.swift - Copyright 2020 SwifterSwift
+// ArrayExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
-//
-//  ArrayExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/26/16.
-//  Copyright © 2016 SwifterSwift
-//
 import XCTest
 
 final class ArrayExtensionsTests: XCTestCase {
@@ -45,7 +38,6 @@ final class ArrayExtensionsTests: XCTestCase {
         let candidate2 = [2, 5, 3, 6, 1, 4]
         XCTAssertEqual(candidate2.sorted(like: order1, keyPath: \.self), [1, 2, 3, 4, 5, 6])
 
-        // swiftlint:disable:next nesting
         struct TestStruct { let prop: String }
         let order3 = ["1", "2", "3", "4", "5"]
         let candidate3 = [

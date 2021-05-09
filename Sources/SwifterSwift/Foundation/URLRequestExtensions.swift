@@ -1,14 +1,7 @@
-// URLRequestExtensions.swift - Copyright 2020 SwifterSwift
+// URLRequestExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
-
-// MARK: - Initializers
-
 public extension URLRequest {
     /// SwifterSwift: Create URLRequest from URL string.
     ///
@@ -17,7 +10,13 @@ public extension URLRequest {
         guard let url = URL(string: urlString) else { return nil }
         self.init(url: url)
     }
+}
+#endif
 
+#if canImport(Foundation) && canImport(FoundationNetworking)
+import Foundation
+import FoundationNetworking
+public extension URLRequest {
     /// SwifterSwift: cURL command representation of this URL request.
     var curlString: String {
         guard let url = url else { return "" }
@@ -39,12 +38,11 @@ public extension URLRequest {
         }
 
         if let data = httpBody,
-            let body = String(data: data, encoding: .utf8) {
+           let body = String(data: data, encoding: .utf8) {
             command.append("-d '\(body)'")
         }
 
         return command.joined(separator: " \\\n\t")
     }
 }
-
 #endif

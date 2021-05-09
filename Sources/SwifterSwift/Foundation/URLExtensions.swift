@@ -1,20 +1,12 @@
-// URLExtensions.swift - Copyright 2020 SwifterSwift
+// URLExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
-#if canImport(UIKit) && canImport(AVFoundation)
-import AVFoundation
-import UIKit
-#endif
-
-// MARK: - Properties
-
 public extension URL {
     /// SwifterSwift: Dictionary of the URL's query parameters.
     var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false),
-            let queryItems = components.queryItems else { return nil }
+              let queryItems = components.queryItems else { return nil }
 
         var items: [String: String] = [:]
 
@@ -25,9 +17,10 @@ public extension URL {
         return items
     }
 }
+#endif
 
-// MARK: - Initializers
-
+#if canImport(Foundation)
+import Foundation
 public extension URL {
     /// SwifterSwift: Initializes an `URL` object with a base URL and a relative string. If `string` was malformed, returns `nil`.
     /// - Parameters:
@@ -38,9 +31,10 @@ public extension URL {
         self.init(string: string, relativeTo: url)
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Foundation)
+import Foundation
 public extension URL {
     /// SwifterSwift: URL with appending query parameters.
     ///
@@ -56,7 +50,12 @@ public extension URL {
             .map { URLQueryItem(name: $0, value: $1) }
         return urlComponents.url!
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension URL {
     /// SwifterSwift: Append query parameters to URL.
     ///
     ///		var url = URL(string: "https://google.com")!
@@ -68,7 +67,12 @@ public extension URL {
     mutating func appendQueryParameters(_ parameters: [String: String]) {
         self = appendingQueryParameters(parameters)
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension URL {
     /// SwifterSwift: Get value of a query key.
     ///
     ///    var url = URL(string: "https://google.com?code=12345")!
@@ -81,7 +85,12 @@ public extension URL {
             .first(where: { $0.name == key })?
             .value
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension URL {
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
     ///     let url = URL(string: "https://domain.com/path/other")!
@@ -95,7 +104,12 @@ public extension URL {
         }
         return url
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension URL {
     /// SwifterSwift: Remove all the path components from the URL.
     ///
     ///        var url = URL(string: "https://domain.com/path/other")!
@@ -106,7 +120,12 @@ public extension URL {
             deleteLastPathComponent()
         }
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension URL {
     /// SwifterSwift: Generates new URL that does not have scheme.
     ///
     ///        let url = URL(string: "https://domain.com")!
@@ -123,11 +142,13 @@ public extension URL {
         return URL(string: droppedScheme)
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Foundation) && canImport(UIKit) && canImport(AVFoundation) && (os(iOS) || os(tvOS))
+import AVFoundation
+import Foundation
+import UIKit
 public extension URL {
-    #if os(iOS) || os(tvOS)
     /// SwifterSwift: Generate a thumbnail image from given url. Returns nil if no thumbnail could be created. This function may take some time to complete. It's recommended to dispatch the call if the thumbnail is not generated from a local resource.
     ///
     ///     var url = URL(string: "https://video.golem.de/files/1/1/20637/wrkw0718-sd.mp4")!
@@ -150,7 +171,5 @@ public extension URL {
         }
         return UIImage(cgImage: cgImage)
     }
-    #endif
 }
-
 #endif

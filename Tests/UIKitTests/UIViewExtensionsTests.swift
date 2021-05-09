@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -80,9 +80,10 @@ final class UIViewExtensionsTests: XCTestCase {
         let view = UIView(frame: frame)
         view.roundCorners([.allCorners], radius: 5.0)
 
-        let maskPath = UIBezierPath(roundedRect: view.bounds,
-                                    byRoundingCorners: [.allCorners],
-                                    cornerRadii: CGSize(width: 5.0, height: 5.0))
+        let maskPath = UIBezierPath(
+            roundedRect: view.bounds,
+            byRoundingCorners: [.allCorners],
+            cornerRadii: CGSize(width: 5.0, height: 5.0))
         let shape = CAShapeLayer()
         shape.path = maskPath.cgPath
         XCTAssertEqual(view.layer.mask?.bounds, shape.bounds)
@@ -313,7 +314,7 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view2.transform)
         XCTAssertEqual(view1.transform, view3.transform)
     }
-  
+
     #if os(tvOS)
     func testLoadFromNib() {
         let bundle = Bundle(for: UIViewExtensionsTests.self)

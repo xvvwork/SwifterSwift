@@ -1,10 +1,7 @@
-// DispatchQueueExtensions.swift - Copyright 2020 SwifterSwift
+// DispatchQueueExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Dispatch)
 import Dispatch
-
-// MARK: - Properties
-
 public extension DispatchQueue {
     /// SwifterSwift: A Boolean value indicating whether the current dispatch queue is the main queue.
     static var isMainQueue: Bool {
@@ -18,9 +15,10 @@ public extension DispatchQueue {
         return DispatchQueue.getSpecific(key: Static.key) != nil
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Dispatch)
+import Dispatch
 public extension DispatchQueue {
     /// SwifterSwift: Returns a Boolean value indicating whether the current dispatch queue is the specified queue.
     ///
@@ -34,7 +32,12 @@ public extension DispatchQueue {
 
         return DispatchQueue.getSpecific(key: key) != nil
     }
+}
+#endif
 
+#if canImport(Dispatch)
+import Dispatch
+public extension DispatchQueue {
     /// SwifterSwift: Runs passed closure asynchronous after certain time interval.
     ///
     /// - Parameters:
@@ -42,13 +45,19 @@ public extension DispatchQueue {
     ///   - qos: Quality of service at which the work item should be executed.
     ///   - flags: Flags that control the execution environment of the work item.
     ///   - work: The closure to run after certain time interval.
-    func asyncAfter(delay: Double,
-                    qos: DispatchQoS = .unspecified,
-                    flags: DispatchWorkItemFlags = [],
-                    execute work: @escaping () -> Void) {
+    func asyncAfter(
+        delay: Double,
+        qos: DispatchQoS = .unspecified,
+        flags: DispatchWorkItemFlags = [],
+        execute work: @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
+}
+#endif
 
+#if canImport(Dispatch)
+import Dispatch
+public extension DispatchQueue {
     func debounce(delay: Double, action: @escaping () -> Void) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
         var lastFireTime = DispatchTime.now()
@@ -64,5 +73,4 @@ public extension DispatchQueue {
         }
     }
 }
-
 #endif

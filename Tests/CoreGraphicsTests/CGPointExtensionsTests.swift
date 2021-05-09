@@ -1,4 +1,4 @@
-// CGPointExtensionsTests.swift - Copyright 2020 SwifterSwift
+// CGPointExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

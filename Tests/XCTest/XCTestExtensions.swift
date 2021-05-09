@@ -1,4 +1,4 @@
-// XCTestExtensions.swift - Copyright 2020 SwifterSwift
+// XCTestExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(XCTest)
 import XCTest
@@ -24,12 +24,13 @@ public typealias Color = NSColor
 ///   - message: An optional description of the failure.
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
-public func XCTAssertEqual(_ expression1: @autoclosure () throws -> Color,
-                           _ expression2: @autoclosure () throws -> Color,
-                           accuracy: CGFloat,
-                           _ message: @autoclosure () -> String = "",
-                           file: StaticString = #file,
-                           line: UInt = #line) {
+public func XCTAssertEqual(
+    _ expression1: @autoclosure () throws -> Color,
+    _ expression2: @autoclosure () throws -> Color,
+    accuracy: CGFloat,
+    _ message: @autoclosure () -> String = "",
+    file: StaticString = #file,
+    line: UInt = #line) {
     var color1: Color!
     XCTAssertNoThrow(color1 = try expression1(), message(), file: file, line: line)
     var color2: Color!

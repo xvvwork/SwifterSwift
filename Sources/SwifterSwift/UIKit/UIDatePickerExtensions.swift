@@ -1,4 +1,4 @@
-// UIDatePickerExtensions.swift - Copyright 2020 SwifterSwift
+// UIDatePickerExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit

@@ -1,18 +1,15 @@
-// SignedNumericExtensions.swift - Copyright 2020 SwifterSwift
-
-#if canImport(Foundation)
-import Foundation
-#endif
-
-// MARK: - Properties
+// SignedNumericExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension SignedNumeric {
     /// SwifterSwift: String.
     var string: String {
         return String(describing: self)
     }
+}
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+import Foundation
+public extension SignedNumeric {
     /// SwifterSwift: String with number and current locale currency.
     var asLocaleCurrency: String? {
         let formatter = NumberFormatter()
@@ -21,13 +18,12 @@ public extension SignedNumeric {
         // swiftlint:disable:next force_cast
         return formatter.string(from: self as! NSNumber)
     }
-    #endif
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Foundation)
+import Foundation
 public extension SignedNumeric {
-    #if canImport(Foundation)
     /// SwifterSwift: Spelled out representation of a number.
     ///
     ///        print((12.32).spelledOutString()) // prints "twelve point three two"
@@ -42,5 +38,5 @@ public extension SignedNumeric {
         guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
-    #endif
 }
+#endif

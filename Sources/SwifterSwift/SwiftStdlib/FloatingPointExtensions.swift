@@ -1,46 +1,56 @@
-// FloatingPointExtensions.swift - Copyright 2020 SwifterSwift
+// FloatingPointExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 #endif
-
-// MARK: - Properties
 
 public extension FloatingPoint {
     /// SwifterSwift: Absolute value of number.
     var abs: Self {
         return Swift.abs(self)
     }
+}
 
+public extension FloatingPoint {
     /// SwifterSwift: Check if number is positive.
     var isPositive: Bool {
         return self > 0
     }
+}
 
+public extension FloatingPoint {
     /// SwifterSwift: Check if number is negative.
     var isNegative: Bool {
         return self < 0
     }
+}
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+public extension FloatingPoint {
     /// SwifterSwift: Ceil of number.
     var ceil: Self {
         return Foundation.ceil(self)
     }
-    #endif
+}
+#endif
 
+public extension FloatingPoint {
     /// SwifterSwift: Radian value of degree input.
     var degreesToRadians: Self {
         return Self.pi * self / Self(180)
     }
+}
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+public extension FloatingPoint {
     /// SwifterSwift: Floor of number.
     var floor: Self {
         return Foundation.floor(self)
     }
-    #endif
+}
+#endif
 
+public extension FloatingPoint {
     /// SwifterSwift: Degree value of radian input.
     var radiansToDegrees: Self {
         return self * Self(180) / Self.pi

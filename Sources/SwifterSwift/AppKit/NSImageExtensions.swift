@@ -1,10 +1,7 @@
-// NSImageExtensions.swift - Copyright 2020 SwifterSwift
+// NSImageExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
-
-// MARK: - Methods
-
 public extension NSImage {
     /// SwifterSwift: NSImage scaled to maximum size with respect to aspect ratio.
     ///
@@ -39,7 +36,12 @@ public extension NSImage {
 
         return NSImage(cgImage: imageRef, size: newSize)
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSImage {
     /// SwifterSwift: Write NSImage to url.
     ///
     /// - Parameters:
@@ -56,5 +58,4 @@ public extension NSImage {
         try? imageData.write(to: url)
     }
 }
-
 #endif

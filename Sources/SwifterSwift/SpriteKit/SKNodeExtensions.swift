@@ -1,10 +1,7 @@
-// SKNodeExtensions.swift - Copyright 2020 SwifterSwift
+// SKNodeExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SpriteKit)
 import SpriteKit
-
-// MARK: - Methods
-
 public extension SKNode {
     /// SwifterSwift: Return an array of all SKNode descendants.
     ///
@@ -15,7 +12,12 @@ public extension SKNode {
         children.append(contentsOf: children.reduce(into: [SKNode]()) { $0.append(contentsOf: $1.descendants()) })
         return children
     }
+}
+#endif
 
+#if canImport(SpriteKit)
+import SpriteKit
+public extension SKNode {
     /// SwifterSwift: The center anchor of the node in its parent's coordinate system.
     ///
     ///         mySKNode.center = CGPoint(x: frame.midX, y: frame.midY)
@@ -30,7 +32,12 @@ public extension SKNode {
             position = CGPoint(x: newValue.x - contents.midX, y: newValue.y - contents.midY)
         }
     }
+}
+#endif
 
+#if canImport(SpriteKit)
+import SpriteKit
+public extension SKNode {
     /// SwifterSwift: The top left anchor of the node in its parent's coordinate system.
     ///
     ///         mySKNode.topLeft = CGPoint(x: frame.minX, y: frame.maxY)
@@ -45,7 +52,12 @@ public extension SKNode {
             position = CGPoint(x: newValue.x - contents.minX, y: newValue.y - contents.maxY)
         }
     }
+}
+#endif
 
+#if canImport(SpriteKit)
+import SpriteKit
+public extension SKNode {
     /// SwifterSwift: The top right anchor of the node in its parent's coordinate system.
     ///
     ///         mySKNode.topRight = CGPoint(x: frame.maxX, y: frame.maxY)
@@ -60,7 +72,12 @@ public extension SKNode {
             position = CGPoint(x: newValue.x - contents.maxX, y: newValue.y - contents.maxY)
         }
     }
+}
+#endif
 
+#if canImport(SpriteKit)
+import SpriteKit
+public extension SKNode {
     /// SwifterSwift: The bottom left anchor of the node in its parent's coordinate system.
     ///
     ///         mySKNode.center = GPoint(x: frame.minX, y: frame.minY)
@@ -75,7 +92,12 @@ public extension SKNode {
             position = CGPoint(x: newValue.x - contents.minX, y: newValue.y - contents.minY)
         }
     }
+}
+#endif
 
+#if canImport(SpriteKit)
+import SpriteKit
+public extension SKNode {
     /// SwifterSwift: The bottom right anchor of the node in its parent's coordinate system.
     ///
     ///         mySKNode.bottomRight = CGPoint(x: frame.maxX, y: frame.minY)
@@ -91,5 +113,4 @@ public extension SKNode {
         }
     }
 }
-
 #endif

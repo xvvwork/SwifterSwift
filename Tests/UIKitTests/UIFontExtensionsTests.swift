@@ -1,4 +1,4 @@
-// UIFontExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIFontExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -24,7 +24,7 @@ final class UIFontExtension: XCTestCase {
         let monoFont = font.monospaced
 
         let attributes = monoFont.fontDescriptor.fontAttributes
-        let fontKey: UIFontDescriptor.AttributeName = UIFontDescriptor.AttributeName.featureSettings
+        let fontKey = UIFontDescriptor.AttributeName.featureSettings
         guard let settings = attributes[fontKey] as? [[UIFontDescriptor.AttributeName: Int]] else {
             XCTFail("Unable to get settings from font")
             return

@@ -1,4 +1,4 @@
-// UITextViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UITextViewExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -42,10 +42,11 @@ final class UITextViewExtensionsTests: XCTestCase {
 
         // determining the text size
         let constraintRect = CGSize(width: 100, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = text.boundingRect(with: constraintRect,
-                                            options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                            attributes: [.font: textView.font!],
-                                            context: nil)
+        let boundingBox = text.boundingRect(
+            with: constraintRect,
+            options: NSStringDrawingOptions.usesLineFragmentOrigin,
+            attributes: [.font: textView.font!],
+            context: nil)
         let textHeight = ceil(boundingBox.height)
         let textSize = CGSize(width: 100, height: textHeight)
 

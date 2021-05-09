@@ -1,10 +1,7 @@
-// MKPolylineExtensions.swift - Copyright 2020 SwifterSwift
+// MKPolylineExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit
-
-// MARK: - Initializers
-
 @available(tvOS 9.2, *)
 public extension MKPolyline {
     /// SwifterSwift: Create a new MKPolyline from a provided Array of coordinates.
@@ -15,9 +12,10 @@ public extension MKPolyline {
         self.init(coordinates: &refCoordinates, count: refCoordinates.count)
     }
 }
+#endif
 
-// MARK: - Properties
-
+#if canImport(MapKit) && !os(watchOS)
+import MapKit
 @available(tvOS 9.2, *)
 public extension MKPolyline {
     /// SwifterSwift: Return an Array of coordinates representing the provided polyline.
@@ -27,5 +25,4 @@ public extension MKPolyline {
         return coords
     }
 }
-
 #endif

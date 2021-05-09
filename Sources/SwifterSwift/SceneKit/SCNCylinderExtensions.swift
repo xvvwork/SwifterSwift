@@ -1,10 +1,7 @@
-// SCNCylinderExtensions.swift - Copyright 2020 SwifterSwift
+// SCNCylinderExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified diameter and height.
     ///
@@ -14,7 +11,12 @@ public extension SCNCylinder {
     convenience init(diameter: CGFloat, height: CGFloat) {
         self.init(radius: diameter / 2, height: height)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified radius, height and material.
     ///
     /// - Parameters:
@@ -25,7 +27,12 @@ public extension SCNCylinder {
         self.init(radius: radius, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified diameter, height and material.
     ///
     /// - Parameters:
@@ -36,7 +43,12 @@ public extension SCNCylinder {
         self.init(radius: diameter / 2, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified radius, height, and material color.
     ///
     /// - Parameters:
@@ -47,7 +59,12 @@ public extension SCNCylinder {
         self.init(radius: radius, height: height)
         materials = [SCNMaterial(color: color)]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified diameter, height, and material color.
     ///
     /// - Parameters:
@@ -59,5 +76,4 @@ public extension SCNCylinder {
         materials = [SCNMaterial(color: color)]
     }
 }
-
 #endif

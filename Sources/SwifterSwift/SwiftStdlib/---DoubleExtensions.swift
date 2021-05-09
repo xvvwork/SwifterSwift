@@ -1,4 +1,4 @@
-// FloatExtensions.swift - Copyright 2020 SwifterSwift
+// ---DoubleExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -12,15 +12,15 @@ import Glibc
 
 // MARK: - Properties
 
-public extension Float {
+public extension Double {
     /// SwifterSwift: Int.
     var int: Int {
         return Int(self)
     }
 
-    /// SwifterSwift: Double.
-    var double: Double {
-        return Double(self)
+    /// SwifterSwift: Float.
+    var float: Float {
+        return Float(self)
     }
 
     #if canImport(CoreGraphics)
@@ -38,10 +38,10 @@ infix operator **: PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:
-///   - lhs: base float.
-///   - rhs: exponent float.
-/// - Returns: exponentiation result (4.4 ** 0.5 = 2.0976176963).
-func ** (lhs: Float, rhs: Float) -> Float {
+///   - lhs: base double.
+///   - rhs: exponent double.
+/// - Returns: exponentiation result (example: 4.4 ** 0.5 = 2.0976176963).
+func ** (lhs: Double, rhs: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(lhs, rhs)
 }

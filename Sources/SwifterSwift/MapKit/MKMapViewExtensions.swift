@@ -1,9 +1,7 @@
-// MKMapViewExtensions.swift - Copyright 2020 SwifterSwift
+// MKMapViewExtensions.swift - Copyright 2021 SwifterSwift
 
-#if canImport(MapKit)
+#if canImport(MapKit) && !os(watchOS)
 import MapKit
-
-#if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKMapView {
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
@@ -14,7 +12,13 @@ public extension MKMapView {
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type) -> T? {
         return dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
     }
+}
+#endif
 
+#if canImport(MapKit) && !os(watchOS)
+import MapKit
+@available(tvOS 9.2, *)
+public extension MKMapView {
     /// SwifterSwift: Register MKAnnotationView using class type.
     ///
     /// - Parameter name: MKAnnotationView type.
@@ -22,7 +26,13 @@ public extension MKMapView {
     func register<T: MKAnnotationView>(annotationViewWithClass name: T.Type) {
         register(T.self, forAnnotationViewWithReuseIdentifier: String(describing: name))
     }
+}
+#endif
 
+#if canImport(MapKit) && !os(watchOS)
+import MapKit
+@available(tvOS 9.2, *)
+public extension MKMapView {
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
     ///
     /// - Parameters:
@@ -30,8 +40,9 @@ public extension MKMapView {
     ///   - annotation: annotation of the mapView.
     /// - Returns: optional MKAnnotationView object.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
-    func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type,
-                                                            for annotation: MKAnnotation) -> T? {
+    func dequeueReusableAnnotationView<T: MKAnnotationView>(
+        withClass name: T.Type,
+        for annotation: MKAnnotation) -> T? {
         guard let annotationView = dequeueReusableAnnotationView(
             withIdentifier: String(describing: name),
             for: annotation) as? T else {
@@ -40,7 +51,13 @@ public extension MKMapView {
 
         return annotationView
     }
+}
+#endif
 
+#if canImport(MapKit) && !os(watchOS)
+import MapKit
+@available(tvOS 9.2, *)
+public extension MKMapView {
     /// SwifterSwift: Zooms in on multiple mapView coordinates.
     ///
     /// - Parameters:
@@ -63,7 +80,4 @@ public extension MKMapView {
         }
     }
 }
-
-#endif
-
 #endif

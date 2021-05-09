@@ -1,20 +1,13 @@
-// CollectionExtensions.swift - Copyright 2020 SwifterSwift
-
-#if canImport(Dispatch)
-import Dispatch
-#endif
-
-// MARK: - Properties
+// CollectionExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Collection {
     /// SwifterSwift: The full range of the collection.
     var fullRange: Range<Index> { startIndex..<endIndex }
 }
 
-// MARK: - Methods
-
+#if canImport(Dispatch)
+import Dispatch
 public extension Collection {
-    #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
     ///        array.forEachInParallel { item in
@@ -27,8 +20,10 @@ public extension Collection {
             each(self[index(startIndex, offsetBy: $0)])
         }
     }
-    #endif
+}
+#endif
 
+public extension Collection {
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///
     ///        let arr = [1, 2, 3, 4, 5]
@@ -39,7 +34,9 @@ public extension Collection {
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
+}
 
+public extension Collection {
     /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
     ///
     ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
@@ -59,7 +56,9 @@ public extension Collection {
         }
         return slices
     }
+}
 
+public extension Collection {
     /// SwifterSwift: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -70,7 +69,9 @@ public extension Collection {
         let indices = try self.indices.filter { try condition(self[$0]) }
         return indices.isEmpty ? nil : indices
     }
+}
 
+public extension Collection {
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
     ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
@@ -82,14 +83,12 @@ public extension Collection {
     func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
         var start = startIndex
         while case let end = index(start, offsetBy: slice, limitedBy: endIndex) ?? endIndex,
-            start != end {
+              start != end {
             try body(Array(self[start..<end]))
             start = end
         }
     }
 }
-
-// MARK: - Methods (Equatable)
 
 public extension Collection where Element: Equatable {
     /// SwifterSwift: All indices of specified item.
@@ -105,8 +104,6 @@ public extension Collection where Element: Equatable {
     }
 }
 
-// MARK: - Methods (BinaryInteger)
-
 public extension Collection where Element: BinaryInteger {
     /// SwifterSwift: Average of all elements in array.
     ///
@@ -117,8 +114,6 @@ public extension Collection where Element: BinaryInteger {
         return Double(reduce(.zero, +)) / Double(count)
     }
 }
-
-// MARK: - Methods (FloatingPoint)
 
 public extension Collection where Element: FloatingPoint {
     /// SwifterSwift: Average of all elements in array.

@@ -1,4 +1,4 @@
-// UIButtonExtensions.swift - Copyright 2020 SwifterSwift
+// UIButtonExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit

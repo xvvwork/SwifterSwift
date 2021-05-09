@@ -1,4 +1,4 @@
-// DictionaryExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DictionaryExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -126,7 +126,6 @@ final class DictionaryExtensionsTests: XCTestCase {
     }
 
     func testCompactMapKeysAndValues() {
-        // swiftlint:disable:next nesting
         enum IntWord: String {
             case zero
             case one

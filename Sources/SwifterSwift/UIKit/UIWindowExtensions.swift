@@ -1,10 +1,7 @@
-// UIWindowExtensions.swift - Copyright 2020 SwifterSwift
+// UIWindowExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
-
-// MARK: - Methods
-
 public extension UIWindow {
     /// SwifterSwift: Switch current root view controller with a new view controller.
     ///
@@ -36,5 +33,4 @@ public extension UIWindow {
         })
     }
 }
-
 #endif

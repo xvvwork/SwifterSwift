@@ -1,10 +1,7 @@
-// CLLocationExtensions.swift - Copyright 2020 SwifterSwift
+// CLLocationExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreLocation)
 import CoreLocation
-
-// MARK: - Methods
-
 public extension CLLocation {
     /// SwifterSwift: Calculate the half-way point along a great circle path between the two points.
     ///
@@ -32,7 +29,12 @@ public extension CLLocation {
 
         return CLLocation(latitude: mlat * 180 / Double.pi, longitude: mlong * 180 / Double.pi)
     }
+}
+#endif
 
+#if canImport(CoreLocation)
+import CoreLocation
+public extension CLLocation {
     /// SwifterSwift: Calculate the half-way point along a great circle path between self and another points.
     ///
     /// - Parameter point: End location.
@@ -40,7 +42,12 @@ public extension CLLocation {
     func midLocation(to point: CLLocation) -> CLLocation {
         return CLLocation.midLocation(start: self, end: point)
     }
+}
+#endif
 
+#if canImport(CoreLocation)
+import CoreLocation
+public extension CLLocation {
     /// SwifterSwift: Calculates the bearing to another CLLocation.
     ///
     /// - Parameters:
@@ -64,5 +71,4 @@ public extension CLLocation {
         return (degrees + 360).truncatingRemainder(dividingBy: 360)
     }
 }
-
 #endif

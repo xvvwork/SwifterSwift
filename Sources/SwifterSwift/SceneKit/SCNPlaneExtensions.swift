@@ -1,10 +1,7 @@
-// SCNPlaneExtensions.swift - Copyright 2020 SwifterSwift
+// SCNPlaneExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNPlane {
     /// SwifterSwift: Creates a square plane geometry with the specified width.
     ///
@@ -12,7 +9,12 @@ public extension SCNPlane {
     convenience init(width: CGFloat) {
         self.init(width: width, height: width)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNPlane {
     /// SwifterSwift: Creates a plane geometry with the specified width, height and material.
     ///
     /// - Parameters:
@@ -23,7 +25,12 @@ public extension SCNPlane {
         self.init(width: width, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNPlane {
     /// SwifterSwift: Creates a square plane geometry with the specified width and material.
     ///
     /// - Parameters:
@@ -33,7 +40,12 @@ public extension SCNPlane {
         self.init(width: width, height: width)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNPlane {
     /// SwifterSwift: Creates a plane geometry with the specified width, height and material color.
     ///
     /// - Parameters:
@@ -44,7 +56,12 @@ public extension SCNPlane {
         self.init(width: width, height: height)
         materials = [SCNMaterial(color: color)]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNPlane {
     /// SwifterSwift: Creates a square plane geometry with the specified width and material color.
     ///
     /// - Parameters:
@@ -55,5 +72,4 @@ public extension SCNPlane {
         materials = [SCNMaterial(color: color)]
     }
 }
-
 #endif

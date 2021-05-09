@@ -1,4 +1,4 @@
-// UIStackViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIStackViewExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -24,16 +24,23 @@ final class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.spacing, 0.0)
 
         XCTAssertEqual(UIStackView(arrangedSubviews: [view1, view2], axis: .vertical).axis, .vertical)
-        XCTAssertEqual(UIStackView(arrangedSubviews: [view1, view2], axis: .vertical, alignment: .center).alignment,
-                       .center)
+        XCTAssertEqual(
+            UIStackView(arrangedSubviews: [view1, view2], axis: .vertical, alignment: .center).alignment,
+            .center)
 
-        XCTAssertEqual(UIStackView(arrangedSubviews: [view1, view2], axis: .vertical,
-                                   distribution: .fillEqually).distribution, .fillEqually)
+        XCTAssertEqual(UIStackView(
+            arrangedSubviews: [view1, view2],
+            axis: .vertical,
+            distribution: .fillEqually).distribution, .fillEqually)
 
         XCTAssertEqual(UIStackView(arrangedSubviews: [view1, view2], axis: .vertical, spacing: 16.0).spacing, 16.0)
 
-        stack = UIStackView(arrangedSubviews: [view1, view2], axis: .vertical, spacing: 16.0,
-                            alignment: .center, distribution: .fillEqually)
+        stack = UIStackView(
+            arrangedSubviews: [view1, view2],
+            axis: .vertical,
+            spacing: 16.0,
+            alignment: .center,
+            distribution: .fillEqually)
 
         XCTAssertEqual(stack.axis, .vertical)
         XCTAssertEqual(stack.alignment, .center)

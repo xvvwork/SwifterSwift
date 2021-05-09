@@ -1,44 +1,41 @@
-// SignedIntegerExtensions.swift - Copyright 2020 SwifterSwift
-
-//
-//  SignedIntegerExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/15/17.
-//  Copyright © 2017 SwifterSwift
-//
-#if canImport(Foundation)
-import Foundation
-#endif
-
-// MARK: - Properties
+// SignedIntegerExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension SignedInteger {
     /// SwifterSwift: Absolute value of integer number.
     var abs: Self {
         return Swift.abs(self)
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: Check if integer is positive.
     var isPositive: Bool {
         return self > 0
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: Check if integer is negative.
     var isNegative: Bool {
         return self < 0
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: Check if integer is even.
     var isEven: Bool {
         return (self % 2) == 0
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: Check if integer is odd.
     var isOdd: Bool {
         return (self % 2) != 0
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: String of format (XXh XXm) from seconds Int.
     var timeString: String {
         guard self > 0 else {
@@ -60,8 +57,6 @@ public extension SignedInteger {
     }
 }
 
-// MARK: - Methods
-
 public extension SignedInteger {
     /// SwifterSwift: Greatest common divisor of integer value and n.
     ///
@@ -70,7 +65,9 @@ public extension SignedInteger {
     func gcd(of number: Self) -> Self {
         return number == 0 ? self : number.gcd(of: self % number)
     }
+}
 
+public extension SignedInteger {
     /// SwifterSwift: Least common multiple of integer and n.
     ///
     /// - Parameter number: integer value to find lcm with.
@@ -78,8 +75,11 @@ public extension SignedInteger {
     func lcm(of number: Self) -> Self {
         return (self * number).abs / gcd(of: number)
     }
+}
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+import Foundation
+public extension SignedInteger {
     /// SwifterSwift: Ordinal representation of an integer.
     ///
     ///        print((12).ordinalString()) // prints "12th"
@@ -94,5 +94,5 @@ public extension SignedInteger {
         guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
-    #endif
 }
+#endif

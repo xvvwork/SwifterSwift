@@ -1,4 +1,4 @@
-// NSAttributedStringExtensions.swift - Copyright 2020 SwifterSwift
+// ----NSAttributedStringExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -105,9 +105,10 @@ public extension NSAttributedString {
     ///   - pattern: a regular expression to target.
     ///   - options: The regular expression options that are applied to the expression during matching. See NSRegularExpression.Options for possible values.
     /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern.
-    func applying(attributes: [Key: Any],
-                  toRangesMatching pattern: String,
-                  options: NSRegularExpression.Options = []) -> NSAttributedString {
+    func applying(
+        attributes: [Key: Any],
+        toRangesMatching pattern: String,
+        options: NSRegularExpression.Options = []) -> NSAttributedString {
         guard let pattern = try? NSRegularExpression(pattern: pattern, options: options) else { return self }
 
         let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
@@ -126,8 +127,9 @@ public extension NSAttributedString {
     ///   - attributes: Dictionary of attributes.
     ///   - target: a subsequence string for the attributes to be applied to.
     /// - Returns: An NSAttributedString with attributes applied on the target string.
-    func applying<T: StringProtocol>(attributes: [Key: Any],
-                                     toOccurrencesOf target: T) -> NSAttributedString {
+    func applying<T: StringProtocol>(
+        attributes: [Key: Any],
+        toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
 
         return applying(attributes: attributes, toRangesMatching: pattern)

@@ -1,4 +1,4 @@
-// ColorExtensions.swift - Copyright 2020 SwifterSwift
+// ---ColorExtensions.swift - Copyright 2021 SwifterSwift
 
 #if !os(Linux)
 
@@ -182,8 +182,11 @@ public extension Color {
     ///   - color2: second color to blend
     ///   - intensity2: intensity of second color (default is 0.5)
     /// - Returns: Color created by blending first and second colors.
-    static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color,
-                      intensity2: CGFloat = 0.5) -> Color {
+    static func blend(
+        _ color1: Color,
+        intensity1: CGFloat = 0.5,
+        with color2: Color,
+        intensity2: CGFloat = 0.5) -> Color {
         // http://stackoverflow.com/questions/27342715/blend-uicolors-in-swift
 
         let total = intensity1 + intensity2
@@ -236,10 +239,11 @@ public extension Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return Color(red: min(red + percentage, 1.0),
-                     green: min(green + percentage, 1.0),
-                     blue: min(blue + percentage, 1.0),
-                     alpha: alpha)
+        return Color(
+            red: min(red + percentage, 1.0),
+            green: min(green + percentage, 1.0),
+            blue: min(blue + percentage, 1.0),
+            alpha: alpha)
     }
 
     /// SwifterSwift: Darken a color.
@@ -253,10 +257,11 @@ public extension Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return Color(red: max(red - percentage, 0),
-                     green: max(green - percentage, 0),
-                     blue: max(blue - percentage, 0),
-                     alpha: alpha)
+        return Color(
+            red: max(red - percentage, 0),
+            green: max(green - percentage, 0),
+            blue: max(blue - percentage, 0),
+            alpha: alpha)
     }
 }
 

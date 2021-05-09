@@ -1,4 +1,4 @@
-// EdgeInsetsExtensionsTests.swift - Copyright 2020 SwifterSwift
+// EdgeInsetsExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 

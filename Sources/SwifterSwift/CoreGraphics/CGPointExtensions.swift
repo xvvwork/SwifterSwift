@@ -1,10 +1,7 @@
-// CGPointExtensions.swift - Copyright 2020 SwifterSwift
+// CGPointExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
-
-// MARK: - Methods
-
 public extension CGPoint {
     /// SwifterSwift: Distance from another CGPoint.
     ///
@@ -18,7 +15,12 @@ public extension CGPoint {
     func distance(from point: CGPoint) -> CGFloat {
         return CGPoint.distance(from: self, to: point)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Distance between two CGPoints.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -35,9 +37,10 @@ public extension CGPoint {
         return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
     }
 }
+#endif
 
-// MARK: - Operators
-
+#if canImport(CoreGraphics)
+import CoreGraphics
 public extension CGPoint {
     /// SwifterSwift: Add two CGPoints.
     ///
@@ -53,7 +56,12 @@ public extension CGPoint {
     static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Add a CGPoints to self.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -68,7 +76,12 @@ public extension CGPoint {
         lhs.x += rhs.x
         lhs.y += rhs.y
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Subtract two CGPoints.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -83,7 +96,12 @@ public extension CGPoint {
     static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Subtract a CGPoints from self.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -98,7 +116,12 @@ public extension CGPoint {
         lhs.x -= rhs.x
         lhs.y -= rhs.y
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Multiply a CGPoint with a scalar.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -112,7 +135,12 @@ public extension CGPoint {
     static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Multiply self with a scalar.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -127,7 +155,12 @@ public extension CGPoint {
         point.x *= scalar
         point.y *= scalar
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGPoint {
     /// SwifterSwift: Multiply a CGPoint with a scalar.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -142,5 +175,4 @@ public extension CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
 }
-
 #endif

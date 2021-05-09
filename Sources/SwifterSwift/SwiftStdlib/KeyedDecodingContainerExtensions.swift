@@ -1,11 +1,8 @@
-// KeyedDecodingContainerExtensions.swift - Copyright 2020 SwifterSwift
+// KeyedDecodingContainerExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-#endif
-
 public extension KeyedDecodingContainer {
-    #if canImport(Foundation)
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool.
     ///
     /// - Parameter key: Key.
@@ -20,9 +17,12 @@ public extension KeyedDecodingContainer {
             return try decode(Bool.self, forKey: key)
         }
     }
-    #endif
+}
+#endif
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+import Foundation
+public extension KeyedDecodingContainer {
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool if present.
     ///
     /// - Parameter key: Key.
@@ -37,5 +37,5 @@ public extension KeyedDecodingContainer {
             return try decodeIfPresent(Bool.self, forKey: key)
         }
     }
-    #endif
 }
+#endif

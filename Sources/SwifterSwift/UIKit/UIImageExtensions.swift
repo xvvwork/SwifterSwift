@@ -1,4 +1,4 @@
-// UIImageExtensions.swift - Copyright 2020 SwifterSwift
+// UIImageExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit
@@ -42,18 +42,20 @@ public extension UIImage {
         var bitmap = [UInt8](repeating: 0, count: 4)
         let workingColorSpace: Any = cgImage?.colorSpace ?? NSNull()
         let context = CIContext(options: [.workingColorSpace: workingColorSpace])
-        context.render(outputImage,
-                       toBitmap: &bitmap,
-                       rowBytes: 4,
-                       bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
-                       format: .RGBA8,
-                       colorSpace: nil)
+        context.render(
+            outputImage,
+            toBitmap: &bitmap,
+            rowBytes: 4,
+            bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+            format: .RGBA8,
+            colorSpace: nil)
 
         // Convert pixel data to UIColor
-        return UIColor(red: CGFloat(bitmap[0]) / 255.0,
-                       green: CGFloat(bitmap[1]) / 255.0,
-                       blue: CGFloat(bitmap[2]) / 255.0,
-                       alpha: CGFloat(bitmap[3]) / 255.0)
+        return UIColor(
+            red: CGFloat(bitmap[0]) / 255.0,
+            green: CGFloat(bitmap[1]) / 255.0,
+            blue: CGFloat(bitmap[2]) / 255.0,
+            alpha: CGFloat(bitmap[3]) / 255.0)
     }
     #endif
 }
@@ -134,10 +136,11 @@ public extension UIImage {
 
         let destRect = CGRect(origin: .zero, size: size)
             .applying(CGAffineTransform(rotationAngle: radians))
-        let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
-                                     y: destRect.origin.y.rounded(),
-                                     width: destRect.width.rounded(),
-                                     height: destRect.height.rounded())
+        let roundedDestRect = CGRect(
+            x: destRect.origin.x.rounded(),
+            y: destRect.origin.y.rounded(),
+            width: destRect.width.rounded(),
+            height: destRect.height.rounded())
 
         UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
         guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
@@ -145,9 +148,11 @@ public extension UIImage {
         contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
         contextRef.rotate(by: radians)
 
-        draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
-                                        y: -size.height / 2),
-                        size: size))
+        draw(in: CGRect(
+            origin: CGPoint(
+                x: -size.width / 2,
+                y: -size.height / 2),
+            size: size))
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -164,10 +169,11 @@ public extension UIImage {
     func rotated(by radians: CGFloat) -> UIImage? {
         let destRect = CGRect(origin: .zero, size: size)
             .applying(CGAffineTransform(rotationAngle: radians))
-        let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
-                                     y: destRect.origin.y.rounded(),
-                                     width: destRect.width.rounded(),
-                                     height: destRect.height.rounded())
+        let roundedDestRect = CGRect(
+            x: destRect.origin.x.rounded(),
+            y: destRect.origin.y.rounded(),
+            width: destRect.width.rounded(),
+            height: destRect.height.rounded())
 
         UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
         guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
@@ -175,9 +181,11 @@ public extension UIImage {
         contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
         contextRef.rotate(by: radians)
 
-        draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
-                                        y: -size.height / 2),
-                        size: size))
+        draw(in: CGRect(
+            origin: CGPoint(
+                x: -size.width / 2,
+                y: -size.height / 2),
+            size: size))
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

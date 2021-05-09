@@ -1,6 +1,4 @@
-// StringProtocolExtensions.swift - Copyright 2020 SwifterSwift
-
-import Foundation
+// StringProtocolExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension StringProtocol {
     /// SwifterSwift: The longest common suffix.
@@ -12,16 +10,20 @@ public extension StringProtocol {
     ///     - Parameter options: Options for the comparison.
     /// - Returns: The longest common suffix of the receiver and the given String.
     func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
-        return String(zip(reversed(), aString.reversed())
-            .lazy
-            .prefix(while: { (lhs: Character, rhs: Character) in
-                String(lhs).compare(String(rhs), options: options) == .orderedSame
-            })
-            .map { (lhs: Character, _: Character) in lhs }
-            .reversed())
+        return String(
+            zip(reversed(), aString.reversed())
+                .lazy
+                .prefix(while: { (lhs: Character, rhs: Character) in
+                    String(lhs).compare(String(rhs), options: options) == .orderedSame
+                })
+                .map { (lhs: Character, _: Character) in lhs }
+                .reversed())
     }
+}
 
-    #if canImport(Foundation)
+#if canImport(Foundation)
+import Foundation
+public extension StringProtocol {
     /// SwifterSwift: Returns a new string in which all occurrences of a regex pattern in a specified range of the receiver are replaced by the template.
     /// - Parameters:
     ///   - pattern: Regex pattern to replace.
@@ -44,5 +46,5 @@ public extension StringProtocol {
             options: options.union(.regularExpression),
             range: searchRange)
     }
-    #endif
 }
+#endif

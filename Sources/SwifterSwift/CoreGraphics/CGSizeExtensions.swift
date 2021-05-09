@@ -1,30 +1,38 @@
-// CGSizeExtensions.swift - Copyright 2020 SwifterSwift
+// CGSizeExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
-
-// MARK: - Methods
-
 public extension CGSize {
     /// SwifterSwift: Returns the aspect ratio.
     var aspectRatio: CGFloat {
         guard height != 0 else { return 0 }
         return width / height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Returns width or height, whichever is the bigger value.
     var maxDimension: CGFloat {
         return max(width, height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Returns width or height, whichever is the smaller value.
     var minDimension: CGFloat {
         return min(width, height)
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(CoreGraphics)
+import CoreGraphics
 public extension CGSize {
     /// SwifterSwift: Aspect fit CGSize.
     ///
@@ -39,7 +47,12 @@ public extension CGSize {
         let minRatio = min(boundingSize.width / width, boundingSize.height / height)
         return CGSize(width: width * minRatio, height: height * minRatio)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Aspect fill CGSize.
     ///
     ///     let rect = CGSize(width: 20, height: 120)
@@ -56,9 +69,10 @@ public extension CGSize {
         return CGSize(width: aWidth, height: aHeight)
     }
 }
+#endif
 
-// MARK: - Operators
-
+#if canImport(CoreGraphics)
+import CoreGraphics
 public extension CGSize {
     /// SwifterSwift: Add two CGSize.
     ///
@@ -74,7 +88,12 @@ public extension CGSize {
     static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Add a tuple to CGSize.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -88,7 +107,12 @@ public extension CGSize {
     static func + (lhs: CGSize, tuple: (width: CGFloat, height: CGFloat)) -> CGSize {
         return CGSize(width: lhs.width + tuple.width, height: lhs.height + tuple.height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Add a CGSize to self.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -103,7 +127,12 @@ public extension CGSize {
         lhs.width += rhs.width
         lhs.height += rhs.height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Add a tuple to self.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -117,7 +146,12 @@ public extension CGSize {
         lhs.width += tuple.width
         lhs.height += tuple.height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Subtract two CGSize.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -132,7 +166,12 @@ public extension CGSize {
     static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Subtract a tuple from CGSize.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -146,7 +185,12 @@ public extension CGSize {
     static func - (lhs: CGSize, tuple: (width: CGFloat, heoght: CGFloat)) -> CGSize {
         return CGSize(width: lhs.width - tuple.width, height: lhs.height - tuple.heoght)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Subtract a CGSize from self.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -161,7 +205,12 @@ public extension CGSize {
         lhs.width -= rhs.width
         lhs.height -= rhs.height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Subtract a tuple from self.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -175,7 +224,12 @@ public extension CGSize {
         lhs.width -= tuple.width
         lhs.height -= tuple.height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Multiply two CGSize.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -190,7 +244,12 @@ public extension CGSize {
     static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -204,7 +263,12 @@ public extension CGSize {
     static func * (lhs: CGSize, scalar: CGFloat) -> CGSize {
         return CGSize(width: lhs.width * scalar, height: lhs.height * scalar)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -218,7 +282,12 @@ public extension CGSize {
     static func * (scalar: CGFloat, rhs: CGSize) -> CGSize {
         return CGSize(width: scalar * rhs.width, height: scalar * rhs.height)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Multiply self with a CGSize.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -233,7 +302,12 @@ public extension CGSize {
         lhs.width *= rhs.width
         lhs.height *= rhs.height
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGSize {
     /// SwifterSwift: Multiply self with a scalar.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
@@ -248,5 +322,4 @@ public extension CGSize {
         lhs.height *= scalar
     }
 }
-
 #endif

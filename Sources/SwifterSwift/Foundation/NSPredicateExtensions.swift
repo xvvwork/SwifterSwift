@@ -1,19 +1,17 @@
-// NSPredicateExtensions.swift - Copyright 2020 SwifterSwift
+// NSPredicateExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
-
-// MARK: - Properties
-
 public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     var not: NSCompoundPredicate {
         return NSCompoundPredicate(notPredicateWithSubpredicate: self)
     }
 }
+#endif
 
-// MARK: - Methods
-
+#if canImport(Foundation)
+import Foundation
 public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
     ///
@@ -22,7 +20,12 @@ public extension NSPredicate {
     func and(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(andPredicateWithSubpredicates: [self, predicate])
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
     ///
     /// - Parameter predicate: NSPredicate.
@@ -31,9 +34,10 @@ public extension NSPredicate {
         return NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
     }
 }
+#endif
 
-// MARK: - Operators
-
+#if canImport(Foundation)
+import Foundation
 public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     /// - Parameters: rhs: NSPredicate to convert.
@@ -41,7 +45,12 @@ public extension NSPredicate {
     static prefix func ! (rhs: NSPredicate) -> NSCompoundPredicate {
         return rhs.not
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
     ///
     /// - Parameters:
@@ -51,7 +60,12 @@ public extension NSPredicate {
     static func + (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs.and(rhs)
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
     ///
     /// - Parameters:
@@ -61,7 +75,12 @@ public extension NSPredicate {
     static func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs.or(rhs)
     }
+}
+#endif
 
+#if canImport(Foundation)
+import Foundation
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by remove the argument to the predicate.
     ///
     /// - Parameters:
@@ -72,5 +91,4 @@ public extension NSPredicate {
         return lhs + !rhs
     }
 }
-
 #endif

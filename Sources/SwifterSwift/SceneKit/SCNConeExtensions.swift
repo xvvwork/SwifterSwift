@@ -1,10 +1,7 @@
-// SCNConeExtensions.swift - Copyright 2020 SwifterSwift
+// SCNConeExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top diameter, bottom diameter, and height.
     ///
@@ -15,7 +12,12 @@ public extension SCNCone {
     convenience init(topDiameter: CGFloat, bottomDiameter: CGFloat, height: CGFloat) {
         self.init(topRadius: topDiameter / 2, bottomRadius: bottomDiameter / 2, height: height)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top radius, bottom radius, height, and material.
     ///
     /// - Parameters:
@@ -27,7 +29,12 @@ public extension SCNCone {
         self.init(topRadius: topRadius, bottomRadius: bottomRadius, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top diameter, bottom diameter, height, and material.
     ///
     /// - Parameters:
@@ -39,7 +46,12 @@ public extension SCNCone {
         self.init(topRadius: topDiameter / 2, bottomRadius: bottomDiameter / 2, height: height)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top radius, bottom radius, height, and material.
     ///
     /// - Parameters:
@@ -51,7 +63,12 @@ public extension SCNCone {
         self.init(topRadius: topRadius, bottomRadius: bottomRadius, height: height)
         materials = [SCNMaterial(color: color)]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top diameter, bottom diameter, height, and material.
     ///
     /// - Parameters:
@@ -64,5 +81,4 @@ public extension SCNCone {
         materials = [SCNMaterial(color: color)]
     }
 }
-
 #endif

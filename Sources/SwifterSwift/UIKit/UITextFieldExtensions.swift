@@ -1,4 +1,4 @@
-// UITextFieldExtensions.swift - Copyright 2020 SwifterSwift
+// UITextFieldExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -78,9 +78,11 @@ public extension UITextField {
     ///
     var hasValidEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-        return text!.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
-                           options: String.CompareOptions.regularExpression,
-                           range: nil, locale: nil) != nil
+        return text!.range(
+            of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+            options: String.CompareOptions.regularExpression,
+            range: nil,
+            locale: nil) != nil
     }
 
     /// SwifterSwift: Left view tint color.

@@ -1,4 +1,4 @@
-// UIViewControllerExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIViewControllerExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -55,15 +55,18 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let storyboard = "TestStoryboard"
         #endif
 
-        let myViewController = MyViewController.instantiate(from: storyboard,
-                                                            bundle: Bundle(for: UIViewControllerExtensionsTests.self))
+        let myViewController = MyViewController.instantiate(
+            from: storyboard,
+            bundle: Bundle(for: UIViewControllerExtensionsTests.self))
         myViewController.loadViewIfNeeded()
         XCTAssertNotNil(myViewController.testLabel)
 
-        let identifiedViewController = MyViewController.instantiate(from: storyboard,
-                                                                    bundle: Bundle(for: UIViewControllerExtensionsTests
-                                                                        .self),
-                                                                    identifier: "MyViewController")
+        let identifiedViewController = MyViewController.instantiate(
+            from: storyboard,
+            bundle: Bundle(
+                for: UIViewControllerExtensionsTests
+                    .self),
+            identifier: "MyViewController")
         identifiedViewController.loadViewIfNeeded()
         XCTAssertNotNil(identifiedViewController.testLabel)
     }
@@ -178,7 +181,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     }
 
     func testPresentPopoverWithDelegate() {
-        // swiftlint:disable:next nesting
         class PopoverDelegate: NSObject, UIPopoverPresentationControllerDelegate {
             func adaptivePresentationStyle(for _: UIPresentationController) -> UIModalPresentationStyle {
                 return .popover

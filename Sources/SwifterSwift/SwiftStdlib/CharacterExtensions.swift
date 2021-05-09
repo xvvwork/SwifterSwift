@@ -1,6 +1,4 @@
-// CharacterExtensions.swift - Copyright 2020 SwifterSwift
-
-// MARK: - Properties
+// CharacterExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Character {
     /// SwifterSwift: Check if character is emoji.
@@ -29,7 +27,9 @@ public extension Character {
             return false
         }
     }
+}
 
+public extension Character {
     /// SwifterSwift: Integer from character (if applicable).
     ///
     ///        Character("1").int -> 1
@@ -38,7 +38,9 @@ public extension Character {
     var int: Int? {
         return Int(String(self))
     }
+}
 
+public extension Character {
     /// SwifterSwift: String from character.
     ///
     ///        Character("a").string -> "a"
@@ -46,7 +48,9 @@ public extension Character {
     var string: String {
         return String(self)
     }
+}
 
+public extension Character {
     /// SwifterSwift: Return the character lowercased.
     ///
     ///        Character("A").lowercased -> Character("a")
@@ -54,7 +58,9 @@ public extension Character {
     var lowercased: Character {
         return String(self).lowercased().first!
     }
+}
 
+public extension Character {
     /// SwifterSwift: Return the character uppercased.
     ///
     ///        Character("a").uppercased -> Character("A")
@@ -63,8 +69,6 @@ public extension Character {
         return String(self).uppercased().first!
     }
 }
-
-// MARK: - Methods
 
 public extension Character {
     /// SwifterSwift: Random character.
@@ -76,8 +80,6 @@ public extension Character {
         return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
     }
 }
-
-// MARK: - Operators
 
 public extension Character {
     /// SwifterSwift: Repeat character multiple times.
@@ -92,7 +94,9 @@ public extension Character {
         guard rhs > 0 else { return "" }
         return String(repeating: String(lhs), count: rhs)
     }
+}
 
+public extension Character {
     /// SwifterSwift: Repeat character multiple times.
     ///
     ///        10 * Character("-") -> "----------"

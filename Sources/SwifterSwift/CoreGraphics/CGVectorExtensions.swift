@@ -1,10 +1,7 @@
-// CGVectorExtensions.swift - Copyright 2020 SwifterSwift
+// CGVectorExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
-
-// MARK: - Properties
-
 public extension CGVector {
     /// SwifterSwift: The angle of rotation (in radians) of the vector. The range of the angle is -π to π; an angle of 0 points to the right.
     ///
@@ -12,7 +9,12 @@ public extension CGVector {
     var angle: CGFloat {
         return atan2(dy, dx)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGVector {
     /// SwifterSwift: The magnitude (or length) of the vector.
     ///
     /// https://en.wikipedia.org/wiki/Euclidean_vector#Length
@@ -20,9 +22,10 @@ public extension CGVector {
         return sqrt((dx * dx) + (dy * dy))
     }
 }
+#endif
 
-// MARK: - Initializers
-
+#if canImport(CoreGraphics)
+import CoreGraphics
 public extension CGVector {
     /// SwifterSwift: Creates a vector with the given magnitude and angle.
     ///
@@ -37,9 +40,10 @@ public extension CGVector {
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 }
+#endif
 
-// MARK: - Operators
-
+#if canImport(CoreGraphics)
+import CoreGraphics
 public extension CGVector {
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
     ///
@@ -53,7 +57,12 @@ public extension CGVector {
     static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
         return CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGVector {
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
@@ -66,7 +75,12 @@ public extension CGVector {
     static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
         return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGVector {
     /// SwifterSwift: Compound assignment operator for vector-scalar multiplication.
     ///
     ///     var vector = CGVector(dx: 1, dy: 1)
@@ -79,7 +93,12 @@ public extension CGVector {
         vector.dx *= scalar
         vector.dy *= scalar
     }
+}
+#endif
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension CGVector {
     /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude remains the same.
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
@@ -91,5 +110,4 @@ public extension CGVector {
         return CGVector(dx: -vector.dx, dy: -vector.dy)
     }
 }
-
 #endif

@@ -1,4 +1,4 @@
-// StringExtensions.swift - Copyright 2020 SwifterSwift
+// ---StringExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -32,8 +32,9 @@ public extension String {
             padding = String(repeating: "=", count: 4 - remainder)
         }
 
-        guard let data = Data(base64Encoded: self + padding,
-                              options: .ignoreUnknownCharacters) else { return nil }
+        guard let data = Data(
+            base64Encoded: self + padding,
+            options: .ignoreUnknownCharacters) else { return nil }
 
         return String(data: data, encoding: .utf8)
     }
@@ -164,7 +165,7 @@ public extension String {
     ///     "Mama".isPalindrome -> false
     ///
     var isPalindrome: Bool {
-        let letters = filter { $0.isLetter }
+        let letters = filter(\.isLetter)
         guard !letters.isEmpty else { return false }
         let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
         let firstHalf = letters[letters.startIndex..<midIndex]
@@ -622,8 +623,8 @@ public extension String {
     subscript<R>(safe range: R) -> String? where R: RangeExpression, R.Bound == Int {
         let range = range.relative(to: Int.min..<Int.max)
         guard range.lowerBound >= 0,
-            let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
-            let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
+              let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
+              let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
             return nil
         }
 

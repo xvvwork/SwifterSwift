@@ -1,9 +1,8 @@
-// UILayoutPriorityExtensions.swift - Copyright 2020 SwifterSwift
+// UILayoutPriorityExtensions.swift - Copyright 2021 SwifterSwift
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
-
-extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+extension UILayoutPriority: ExpressibleByFloatLiteral {
     // MARK: - Initializers
 
     /// SwifterSwift: Initialize `UILayoutPriority` with a float literal.
@@ -14,7 +13,12 @@ extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiter
     public init(floatLiteral value: Float) {
         self.init(rawValue: value)
     }
+}
+#endif
 
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
+import UIKit
+extension UILayoutPriority: ExpressibleByIntegerLiteral {
     /// SwifterSwift: Initialize `UILayoutPriority` with an integer literal.
     ///
     ///     constraint.priority = 5
@@ -24,5 +28,4 @@ extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiter
         self.init(rawValue: Float(value))
     }
 }
-
 #endif

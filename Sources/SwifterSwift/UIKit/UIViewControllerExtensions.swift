@@ -1,4 +1,4 @@
-// UIViewControllerExtensions.swift - Copyright 2020 SwifterSwift
+// UIViewControllerExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit

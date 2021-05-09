@@ -1,4 +1,4 @@
-// StringProtocolExtensionsTests.swift - Copyright 2020 SwifterSwift
+// StringProtocolExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

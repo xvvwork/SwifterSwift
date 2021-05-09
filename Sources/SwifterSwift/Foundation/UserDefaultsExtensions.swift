@@ -1,10 +1,7 @@
-// UserDefaultsExtensions.swift - Copyright 2020 SwifterSwift
+// UserDefaultsExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation) && !os(Linux)
 import Foundation
-
-// MARK: - Methods
-
 public extension UserDefaults {
     /// SwifterSwift: get object from UserDefaults by using subscript.
     ///
@@ -17,7 +14,12 @@ public extension UserDefaults {
             set(newValue, forKey: key)
         }
     }
+}
+#endif
 
+#if canImport(Foundation) && !os(Linux)
+import Foundation
+public extension UserDefaults {
     /// SwifterSwift: Float from UserDefaults.
     ///
     /// - Parameter key: key to find float for.
@@ -25,7 +27,12 @@ public extension UserDefaults {
     func float(forKey key: String) -> Float? {
         return object(forKey: key) as? Float
     }
+}
+#endif
 
+#if canImport(Foundation) && !os(Linux)
+import Foundation
+public extension UserDefaults {
     /// SwifterSwift: Date from UserDefaults.
     ///
     /// - Parameter key: key to find date for.
@@ -33,7 +40,12 @@ public extension UserDefaults {
     func date(forKey key: String) -> Date? {
         return object(forKey: key) as? Date
     }
+}
+#endif
 
+#if canImport(Foundation) && !os(Linux)
+import Foundation
+public extension UserDefaults {
     /// SwifterSwift: Retrieves a Codable object from UserDefaults.
     ///
     /// - Parameters:
@@ -45,7 +57,12 @@ public extension UserDefaults {
         guard let data = value(forKey: key) as? Data else { return nil }
         return try? decoder.decode(type.self, from: data)
     }
+}
+#endif
 
+#if canImport(Foundation) && !os(Linux)
+import Foundation
+public extension UserDefaults {
     /// SwifterSwift: Allows storing of Codable objects to UserDefaults.
     ///
     /// - Parameters:
@@ -57,5 +74,4 @@ public extension UserDefaults {
         set(data, forKey: key)
     }
 }
-
 #endif

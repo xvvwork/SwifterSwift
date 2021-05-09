@@ -1,10 +1,7 @@
-// SCNBoxExtensions.swift - Copyright 2020 SwifterSwift
+// SCNBoxExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNBox {
     /// SwifterSwift: Creates a box geometry with the specified width, height, and length.
     ///
@@ -15,7 +12,12 @@ public extension SCNBox {
     convenience init(width: CGFloat, height: CGFloat, length: CGFloat) {
         self.init(width: width, height: height, length: length, chamferRadius: 0)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNBox {
     /// SwifterSwift: Creates a cube geometry with the specified side length, and chamfer radius.
     ///
     /// - Parameters:
@@ -24,7 +26,12 @@ public extension SCNBox {
     convenience init(sideLength: CGFloat, chamferRadius: CGFloat = 0) {
         self.init(width: sideLength, height: sideLength, length: sideLength, chamferRadius: chamferRadius)
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNBox {
     /// SwifterSwift: Creates a box geometry with the specified width, height, length, chamfer radius, and material.
     ///
     /// - Parameters:
@@ -42,7 +49,12 @@ public extension SCNBox {
         self.init(width: width, height: height, length: length, chamferRadius: chamferRadius)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNBox {
     /// SwifterSwift: Creates a cube geometry with the specified side length, chamfer radius, and material.
     ///
     /// - Parameters:
@@ -53,7 +65,12 @@ public extension SCNBox {
         self.init(width: sideLength, height: sideLength, length: sideLength, chamferRadius: chamferRadius)
         materials = [material]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNBox {
     /// SwifterSwift: Creates a box geometry with the specified width, height, length, chamfer radius, and material color.
     ///
     /// - Parameters:
@@ -66,7 +83,12 @@ public extension SCNBox {
         self.init(width: width, height: height, length: length, chamferRadius: chamferRadius)
         materials = [SCNMaterial(color: color)]
     }
+}
+#endif
 
+#if canImport(SceneKit)
+import SceneKit
+public extension SCNBox {
     /// SwifterSwift: Creates a cube geometry with the specified side length, chamfer radius, and material color.
     ///
     /// - Parameters:
@@ -78,5 +100,4 @@ public extension SCNBox {
         materials = [SCNMaterial(color: color)]
     }
 }
-
 #endif

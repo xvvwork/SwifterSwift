@@ -1,4 +1,4 @@
-// UIAlertControllerExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIAlertControllerExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

@@ -1,4 +1,4 @@
-// OptionalExtensions.swift - Copyright 2020 SwifterSwift
+// ---OptionalExtensions.swift - Copyright 2021 SwifterSwift
 
 // MARK: - Methods
 
@@ -17,7 +17,9 @@ public extension Optional {
         // http://www.russbishop.net/improving-optionals
         return self ?? defaultValue
     }
+}
 
+public extension Optional {
     /// SwifterSwift: Gets the wrapped value of an optional. If the optional is `nil`, throw a custom error.
     ///
     ///        let foo: String? = nil
@@ -33,7 +35,9 @@ public extension Optional {
         guard let wrapped = self else { throw error }
         return wrapped
     }
+}
 
+public extension Optional {
     /// SwifterSwift: Runs a block to Wrapped if not nil.
     ///
     ///		let foo: String? = nil
@@ -53,7 +57,9 @@ public extension Optional {
         // http://www.russbishop.net/improving-optionals
         _ = map(block)
     }
+}
 
+public extension Optional {
     /// SwifterSwift: Assign an optional value to a variable only if the value is not nil.
     ///
     ///     let someParameter: String? = nil
@@ -67,7 +73,9 @@ public extension Optional {
         guard let rhs = rhs else { return }
         lhs = rhs
     }
+}
 
+public extension Optional {
     /// SwifterSwift: Assign an optional value to a variable only if the variable is nil.
     ///
     ///     var someText: String? = nil
@@ -86,15 +94,15 @@ public extension Optional {
     }
 }
 
-// MARK: - Methods (Collection)
-
 public extension Optional where Wrapped: Collection {
     /// SwifterSwift: Check if optional is nil or empty collection.
     var isNilOrEmpty: Bool {
         guard let collection = self else { return true }
         return collection.isEmpty
     }
+}
 
+public extension Optional where Wrapped: Collection {
     /// SwifterSwift: Returns the collection only if it is not nil and not empty.
     var nonEmpty: Wrapped? {
         guard let collection = self else { return nil }
@@ -106,9 +114,7 @@ public extension Optional where Wrapped: Collection {
 // MARK: - Methods (RawRepresentable, RawValue: Equatable)
 
 public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
-    // swiftlint:disable missing_swifterswift_prefix
-
-    /// Returns a Boolean value indicating whether two values are equal.
+    /// SwifterSwift: Returns a Boolean value indicating whether two values are equal.
     ///
     /// Equality is the inverse of inequality. For any values `a` and `b`,
     /// `a == b` implies that `a != b` is `false`.
@@ -119,8 +125,10 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     @inlinable static func == (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
         return lhs?.rawValue == rhs
     }
+}
 
-    /// Returns a Boolean value indicating whether two values are equal.
+public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
+    /// SwifterSwift: Returns a Boolean value indicating whether two values are equal.
     ///
     /// Equality is the inverse of inequality. For any values `a` and `b`,
     /// `a == b` implies that `a != b` is `false`.
@@ -131,8 +139,10 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     @inlinable static func == (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
         return lhs == rhs?.rawValue
     }
+}
 
-    /// Returns a Boolean value indicating whether two values are not equal.
+public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
+    /// SwifterSwift: Returns a Boolean value indicating whether two values are not equal.
     ///
     /// Inequality is the inverse of equality. For any values `a` and `b`,
     /// `a != b` implies that `a == b` is `false`.
@@ -143,8 +153,10 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     @inlinable static func != (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
         return lhs?.rawValue != rhs
     }
+}
 
-    /// Returns a Boolean value indicating whether two values are not equal.
+public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
+    /// SwifterSwift: Returns a Boolean value indicating whether two values are not equal.
     ///
     /// Inequality is the inverse of equality. For any values `a` and `b`,
     /// `a != b` implies that `a == b` is `false`.
@@ -155,8 +167,6 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     @inlinable static func != (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
         return lhs != rhs?.rawValue
     }
-
-    // swiftlint:enable missing_swifterswift_prefix
 }
 
 // MARK: - Operators

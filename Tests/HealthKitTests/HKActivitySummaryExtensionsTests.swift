@@ -1,4 +1,4 @@
-// HKActivitySummaryExtensionsTests.swift - Copyright 2020 SwifterSwift
+// HKActivitySummaryExtensionsTests.swift - Copyright 2021 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

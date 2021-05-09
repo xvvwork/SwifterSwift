@@ -1,10 +1,7 @@
-// SCNMaterialExtensions.swift - Copyright 2020 SwifterSwift
+// SCNMaterialExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
-
-// MARK: - Methods
-
 public extension SCNMaterial {
     /// SwifterSwift: Initializes a SCNMaterial with a specific diffuse color.
     ///
@@ -14,5 +11,4 @@ public extension SCNMaterial {
         diffuse.contents = color
     }
 }
-
 #endif

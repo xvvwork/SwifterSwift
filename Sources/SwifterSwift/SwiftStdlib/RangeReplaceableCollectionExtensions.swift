@@ -1,6 +1,4 @@
-// RangeReplaceableCollectionExtensions.swift - Copyright 2020 SwifterSwift
-
-// MARK: - Initializers
+// RangeReplaceableCollectionExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension RangeReplaceableCollection {
     /// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will be the result of a call of the given expression.
@@ -24,8 +22,6 @@ public extension RangeReplaceableCollection {
     }
 }
 
-// MARK: - Methods
-
 public extension RangeReplaceableCollection {
     ///  SwifterSwift: Returns a new rotated collection by the given places.
     ///
@@ -40,7 +36,9 @@ public extension RangeReplaceableCollection {
         var copy = self
         return copy.rotate(by: places)
     }
+}
 
+public extension RangeReplaceableCollection {
     ///  SwifterSwift: Rotate the collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
@@ -66,7 +64,9 @@ public extension RangeReplaceableCollection {
         }
         return self
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
     ///
     ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
@@ -79,14 +79,18 @@ public extension RangeReplaceableCollection {
         guard let index = try firstIndex(where: predicate) else { return nil }
         return remove(at: index)
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult
     mutating func removeRandomElement() -> Element? {
         guard let randomIndex = indices.randomElement() else { return nil }
         return remove(at: randomIndex)
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7].keep(while: { $0 % 2 == 0 }) -> [0, 2, 4]
@@ -101,7 +105,9 @@ public extension RangeReplaceableCollection {
         }
         return self
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Take element of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
@@ -111,7 +117,9 @@ public extension RangeReplaceableCollection {
     func take(while condition: (Element) throws -> Bool) rethrows -> Self {
         return Self(try prefix(while: condition))
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Skip elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
@@ -122,7 +130,9 @@ public extension RangeReplaceableCollection {
         guard let idx = try firstIndex(where: { try !condition($0) }) else { return Self() }
         return Self(self[idx...])
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -136,7 +146,9 @@ public extension RangeReplaceableCollection {
             return true
         }
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
@@ -144,7 +156,9 @@ public extension RangeReplaceableCollection {
         var set = Set<E>()
         removeAll { !set.insert($0[keyPath: path]).inserted }
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Accesses the element at the specified position.
     ///
     /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
@@ -157,15 +171,18 @@ public extension RangeReplaceableCollection {
             replaceSubrange(offsetIndex..<index(after: offsetIndex), with: [newValue])
         }
     }
+}
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
     ///
     /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of the collection.
     subscript<R>(range: R) -> SubSequence where R: RangeExpression, R.Bound == Int {
         get {
             let indexRange = range.relative(to: 0..<count)
-            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex,
-                                                                                   offsetBy: indexRange.upperBound)]
+            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(
+                startIndex,
+                offsetBy: indexRange.upperBound)]
         }
         set {
             let indexRange = range.relative(to: 0..<count)

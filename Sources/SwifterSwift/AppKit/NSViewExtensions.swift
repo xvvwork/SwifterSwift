@@ -1,10 +1,7 @@
-// NSViewExtensions.swift - Copyright 2020 SwifterSwift
+// NSViewExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
-
-// MARK: - Properties
-
 public extension NSView {
     /// SwifterSwift: Border color of view; also inspectable from Storyboard.
     @IBInspectable
@@ -18,7 +15,12 @@ public extension NSView {
             layer?.borderColor = newValue?.cgColor
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Border width of view; also inspectable from Storyboard.
     @IBInspectable
     var borderWidth: CGFloat {
@@ -30,7 +32,12 @@ public extension NSView {
             layer?.borderWidth = newValue
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
     @IBInspectable
     var cornerRadius: CGFloat {
@@ -43,7 +50,12 @@ public extension NSView {
             layer?.cornerRadius = newValue.magnitude
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     // SwifterSwift: Height of view.
     var height: CGFloat {
         get {
@@ -53,7 +65,12 @@ public extension NSView {
             frame.size.height = newValue
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
     @IBInspectable
     var shadowColor: NSColor? {
@@ -66,7 +83,12 @@ public extension NSView {
             layer?.shadowColor = newValue?.cgColor
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
     @IBInspectable
     var shadowOffset: CGSize {
@@ -78,7 +100,12 @@ public extension NSView {
             layer?.shadowOffset = newValue
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable
     var shadowOpacity: Float {
@@ -90,7 +117,12 @@ public extension NSView {
             layer?.shadowOpacity = newValue
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
     @IBInspectable
     var shadowRadius: CGFloat {
@@ -102,7 +134,12 @@ public extension NSView {
             layer?.shadowRadius = newValue
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Background color of the view; also inspectable from Storyboard.
     @IBInspectable
     var backgroundColor: NSColor? {
@@ -118,7 +155,12 @@ public extension NSView {
             layer?.backgroundColor = newValue?.cgColor
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
@@ -129,7 +171,12 @@ public extension NSView {
             height = newValue.height
         }
     }
+}
+#endif
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView {
     /// SwifterSwift: Width of view.
     var width: CGFloat {
         get {
@@ -140,11 +187,11 @@ public extension NSView {
         }
     }
 }
+#endif
 
-// MARK: - Methods
-
-public extension NSView {
-    /// SwifterSwift: Add array of subviews to view.
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+public extension NSView { /// SwifterSwift: Add array of subviews to view.
     ///
     /// - Parameter subviews: array of subviews to add to self.
     func addSubviews(_ subviews: [NSView]) {
@@ -156,5 +203,4 @@ public extension NSView {
         subviews.forEach { $0.removeFromSuperview() }
     }
 }
-
 #endif

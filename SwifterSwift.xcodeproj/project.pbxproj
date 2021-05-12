@@ -323,6 +323,7 @@
 		07C50D8F1F5EB06000F46E5A /* CLLocationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D281F5EB03200F46E5A /* CLLocationExtensionsTests.swift */; };
 		07C50D901F5EB06000F46E5A /* NSAttributedStringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D291F5EB03200F46E5A /* NSAttributedStringExtensionsTests.swift */; };
 		07D9C880264C85530084CC3E /* NSEdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D9C87F264C85530084CC3E /* NSEdgeInsetsExtensionsTests.swift */; };
+		07D9C881264C873C0084CC3E /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786C0272648036800BEB87A /* UIEdgeInsetsExtensions.swift */; };
 		07FE50431F891B40000766AA /* ColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D121F5EB03200F46E5A /* ColorExtensionsTests.swift */; };
 		07FE50451F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */; };
 		07FE50461F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */; };
@@ -2166,6 +2167,7 @@
 				07B7F1B81F5EB42000E6F910 /* UITabBarExtensions.swift in Sources */,
 				664CB96E2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
 				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
+				07D9C881264C873C0084CC3E /* UIEdgeInsetsExtensions.swift in Sources */,
 				F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,

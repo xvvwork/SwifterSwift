@@ -12,6 +12,7 @@ public extension CGFloat {
 
 #if canImport(CoreGraphics) && canImport(Foundation)
 import CoreGraphics
+import Foundation
 public extension CGFloat {
     /// SwifterSwift: Ceil of CGFloat value.
     var ceil: CGFloat {
@@ -32,6 +33,7 @@ public extension CGFloat {
 
 #if canImport(CoreGraphics) && canImport(Foundation)
 import CoreGraphics
+import Foundation
 public extension CGFloat {
     /// SwifterSwift: Floor of CGFloat value.
     var floor: CGFloat {

@@ -1,38 +1,31 @@
-// ---DoubleExtensions.swift - Copyright 2021 SwifterSwift
-
-#if canImport(CoreGraphics)
-import CoreGraphics
-#endif
-
-#if os(macOS) || os(iOS)
-import Darwin
-#elseif os(Linux)
-import Glibc
-#endif
-
-// MARK: - Properties
+// DoubleExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Double {
     /// SwifterSwift: Int.
     var int: Int {
         return Int(self)
     }
+}
 
+public extension Double {
     /// SwifterSwift: Float.
     var float: Float {
         return Float(self)
     }
+}
 
-    #if canImport(CoreGraphics)
+#if canImport(CoreGraphics)
+import CoreGraphics
+public extension Double {
     /// SwifterSwift: CGFloat.
     var cgFloat: CGFloat {
         return CGFloat(self)
     }
-    #endif
 }
+#endif
 
-// MARK: - Operators
-
+#if canImport(Foundation)
+import Foundation
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator **: PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
@@ -45,3 +38,4 @@ func ** (lhs: Double, rhs: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(lhs, rhs)
 }
+#endif

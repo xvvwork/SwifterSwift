@@ -1,6 +1,4 @@
-// ---OptionalExtensions.swift - Copyright 2021 SwifterSwift
-
-// MARK: - Methods
+// OptionalExtensions.swift - Copyright 2021 SwifterSwift
 
 public extension Optional {
     /// SwifterSwift: Get self of default value (if self is nil).
@@ -59,6 +57,7 @@ public extension Optional {
     }
 }
 
+infix operator ??=: AssignmentPrecedence
 public extension Optional {
     /// SwifterSwift: Assign an optional value to a variable only if the value is not nil.
     ///
@@ -75,6 +74,7 @@ public extension Optional {
     }
 }
 
+infix operator ?=: AssignmentPrecedence
 public extension Optional {
     /// SwifterSwift: Assign an optional value to a variable only if the variable is nil.
     ///
@@ -168,8 +168,3 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
         return lhs != rhs?.rawValue
     }
 }
-
-// MARK: - Operators
-
-infix operator ??=: AssignmentPrecedence
-infix operator ?=: AssignmentPrecedence

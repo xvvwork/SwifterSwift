@@ -4,6 +4,7 @@
 import XCTest
 
 final class NotificationCenterExtensionsTests: XCTestCase {
+    // swiftlint:disable:next function_body_length
     func testObserveOnce() {
         var count = 0
 

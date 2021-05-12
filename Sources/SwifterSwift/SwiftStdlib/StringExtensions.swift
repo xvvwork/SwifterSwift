@@ -609,10 +609,11 @@ public extension String {
     ///
     /// - Returns: The most common character.
     func mostCommonCharacter() -> Character? {
-        let mostCommon = trimmingCharacters(in: .whitespacesAndNewlines).reduce(into: [Character: Int]()) {
-            let count = $0[$1] ?? 0
-            $0[$1] = count + 1
-        }.max { $0.1 < $1.1 }?.key
+        let mostCommon = replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+            .reduce(into: [Character: Int]()) {
+                let count = $0[$1] ?? 0
+                $0[$1] = count + 1
+            }.max { $0.1 < $1.1 }?.key
 
         return mostCommon
     }

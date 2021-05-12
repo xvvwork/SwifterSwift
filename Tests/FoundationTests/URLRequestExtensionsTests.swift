@@ -22,6 +22,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertNil(URLRequest(urlString: invalidURLString))
     }
 
+    #if canImport(FoundationNetworking)
     func testCUrlSring() {
         let insightNASAcURL =
             "curl https://api.nasa.gov/insight_weather/?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&feedtype=json&ver=1.0"
@@ -62,6 +63,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         let planetaryRequest = URLRequest(url: components!.url!)
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
     }
+    #endif
 }
 
 #endif

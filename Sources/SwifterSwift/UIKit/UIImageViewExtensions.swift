@@ -47,6 +47,16 @@ public extension UIImageView {
         addSubview(blurEffectView)
         clipsToBounds = true
     }
+    
+    func blur(withStyle style: UIBlurEffect.Style = .light ,withAlpha alpha: CGFloat) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        blurEffectView.alpha = alpha
+        addSubview(blurEffectView)
+        clipsToBounds = true
+    }
 
     /// SwifterSwift: Blurred version of an image view.
     ///
